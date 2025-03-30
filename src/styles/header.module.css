@@ -1,0 +1,69 @@
+.header {
+    background-color: white;
+    border-bottom: 1px solid var(--color-grey);
+    position: relative;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    max-height: 100vh;
+    z-index: 1000;
+}
+
+.collapsibleRoot {
+    width: 100%;
+}
+
+.menuBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.menuContent {
+    background-color: var(--color-white);
+    width: 100%;
+    height: 100vh;
+}
+
+.menuList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    padding-block: 2rem;
+    display: grid;
+}
+
+.menuContent[data-state="open"] {
+	animation: slideDown 800ms cubic-bezier(.12,.57,.64,.59);
+}
+
+.menuContent[data-state="closed"] {
+	animation: slideUp 800ms cubic-bezier(.76,.25,.64,.59);
+}
+
+@keyframes slideDown {
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--radix-collapsible-content-height);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		height: var(--radix-collapsible-content-height);
+	}
+	to {
+		height: 0;
+	}
+}
