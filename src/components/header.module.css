@@ -1,6 +1,6 @@
 .header {
-    background-color: white;
-    border-bottom: 1px solid var(--color-grey);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid var(--color-grey-light);
     position: relative;
     position: sticky;
     top: 0;
@@ -31,6 +31,8 @@
     background-color: var(--color-white);
     width: 100%;
     height: 100vh;
+    box-shadow: 1px 20px 0px 20px var(--color-white);
+    margin-top: .5rem;
 }
 
 .menuList {
@@ -42,12 +44,38 @@
     display: grid;
 }
 
+.li {
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-grey-light);
+}
+
+.menuItem {
+    font-size: var(--nav-link);
+    color: var(--color-black);
+    display: block;
+    padding-block: 1.2rem;
+    padding-inline: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4rem;
+    animation: reveal 1.2s linear;
+}
+
+@keyframes reveal {
+    0% {
+      clip-path: inset(100% 0% 0px 0px);
+    }
+    100% {
+      clip-path: inset(0% 0% 0px 0px);
+    }
+  }
+
 .menuContent[data-state="open"] {
-	animation: slideDown 800ms cubic-bezier(.12,.57,.64,.59);
+	animation: slideDown 600ms ease-out;
 }
 
 .menuContent[data-state="closed"] {
-	animation: slideUp 800ms cubic-bezier(.76,.25,.64,.59);
+	animation: slideUp 600ms ease-in;
 }
 
 @keyframes slideDown {
