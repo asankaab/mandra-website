@@ -8,7 +8,7 @@ import "swiper/css";
 import React from "react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import Image from "next/image";
-import styles from "./carousel.module.css";
+import styles from "./carousel.module.scss";
 
 export default function Carousel({ srcList }: { srcList: Array<string> }) {
     return (
@@ -25,12 +25,15 @@ export default function Carousel({ srcList }: { srcList: Array<string> }) {
                 <Image
                     src={src}
                     alt={"Slide Image-" + index}
-                    width={800}
-                    height={1200}
+                    fill
                     className={styles.heroImage}
                 />
             </SwiperSlide>
         ))}
+        <div className={styles.overlay}>
+            <Image src="/triangle.svg" alt="Triangle" width={30} height={60} className={styles.triangle} />
+            <Image src="/images/logo_faded.png" alt="Logo" width={350} height={350} />
+        </div>
         </Swiper>
     )
 }

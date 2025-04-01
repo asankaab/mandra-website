@@ -20,11 +20,7 @@ export const metadata: Metadata = {
   description: "Mandra photography portfolio",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
       <body className={`${BaskervvilleSerif.variable} ${BricolageGrotesqueSans.className}`}>

@@ -1,5 +1,6 @@
 :root {
   /* fonts */
+  font-size: 16px;
   --nav-link: 1rem;
   --heading1: 2rem;
   --heading2: 1.5rem;
@@ -12,27 +13,42 @@
   --color-grey-light: #E6E6E6;
   --color-grey-dark: #272727;
   --color-grey-shade: #FAFAFA;
+
+  /* spacing */
+
+  --size-xs: 0.25rem;
+  --size-sm: .5rem;
+  --size-md: 1rem;
+  --size-lg: 2rem;
+}
+
+@media screen and (min-width: 1020px) {
+  :root {
+    --nav-link: .7rem;
+    --heading1: 2.2rem;
+    --heading2: 1.6rem;
+    --body: 1rem;
+  }
 }
 
 
 /* Global styles */
 
 .wrapper {
-  padding: 10px 20px;
+  padding: 0px 20px;
+}
+
+/* large screens */
+
+@media (min-width: 1360px) {
+  .wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
 }
 
 .navLink:hover, .navLink:focus-visible {
   background-color: var(--color-grey-shade);
-}
-
-.heading1 {
-    font-family: var(--font-Baskervville);
-    font-size: var(--heading1);
-    font-weight: 300;
-}
-
-.heading2 {
-  font-size: var(--heading2);
 }
 
 .text-center {
@@ -46,4 +62,5 @@ button[data-state="closed"] .close-icon {
 button[data-state="open"] .open-icon {
   display: none;
 }
+
   
