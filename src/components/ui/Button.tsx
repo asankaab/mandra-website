@@ -1,25 +1,29 @@
 import { ReactNode } from 'react';
 import styles from './button.module.scss';
+import Link from 'next/link';
 
-export default function Button({ children, className, varient, asLink, ...props }
-    : { children: ReactNode; className?: string; varient?: string; asLink?: boolean }) {
+export default function Button({ children, className, varient, href, ...props }
+    : { children: ReactNode; className?: string; varient?: string; href?: string }) {
 
-    if (varient === 'outline') {
+        const style = styles[varient || 'default']
+
+        if (href) {
+
+            return (
+                <Link href={href} className={`${style} ${className}`}
+                        {...props}
+                    >
+                        {children}
+                </Link>
+            );
+            
+        }
+
         return (
-            <button className={`${styles.outline} ${className}`}
+            <button className={`${style} ${className}`}
                 {...props}
             >
                 {children}
             </button>
         );
-        
-    }
-
-    return (
-        <button className={`${styles.default} ${className}`}
-            {...props}
-        >
-            {children}
-        </button>
-    );
 }

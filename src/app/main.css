@@ -55,12 +55,4 @@
   text-align: center;
 }
 
-button[data-state="closed"] .close-icon {
-  display: none;
-}
-
-button[data-state="open"] .open-icon {
-  display: none;
-}
-
   

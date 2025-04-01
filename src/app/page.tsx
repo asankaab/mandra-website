@@ -15,7 +15,7 @@ export default async function Home() {
           <Heading2 className={styles.text}>Welcome to our world of photography!</Heading2>
           <p className={styles.text}>Explore the interplay of light and shadow to create dramatic, moody, or ethereal photographs.</p>
           <div className={styles.buttonContainer}>
-              <Button>Showcase</Button>
+              <Button href="/showcase">Showcase</Button>
               <Button varient="outline">Book Now</Button>
             </div>
         </div>
