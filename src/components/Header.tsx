@@ -1,13 +1,9 @@
-'use client';
 import Image from "next/image";
 import styles from "./header.module.scss"
-import { Collapsible } from "radix-ui";
 import Link from "next/link";
-import { useState } from "react";
+import MobileMenu from "./MobileMenu";
 
-export default function Header() {
-
-    const [state, setState] = useState(false);
+export default async function Header() {
 
     const menuItems = [
         { name: "Showcase", href: "showcase" },
@@ -20,22 +16,7 @@ export default function Header() {
         <header className={styles.header}>
             <div className="wrapper">
                 <div className={styles.mobileNav}>
-                    <Collapsible.Root onOpenChange={() => setState(!state)} className={styles.collapsibleRoot}>
-                        <div className={styles.menuBar}>
-                            <Link href="/" ><Image src={"/logo.svg"} alt="Logo" width={38} height={38} /></Link>
-                            <Collapsible.Trigger className={styles.menuButton}>
-                                <Image src={"/menu-icon.svg"} alt="Menu" width={30} height={30} className={state ? styles.hide : ""} />
-                                <Image src={"/close-icon.svg"} alt="Menu" width={30} height={30} className={!state ? styles.hide : ""} />
-                            </Collapsible.Trigger>
-                        </div>
-                        <Collapsible.Content className={styles.menuContent}>
-                            <ul className={styles.menuList}>
-                                {menuItems.map((item, index) =>
-                                    <li className={styles.li} key={index}><Link href={item.href} className={styles.menuItem}>{item.name}</Link></li>
-                                )}
-                            </ul>
-                        </Collapsible.Content>
-                    </Collapsible.Root>
+                    <MobileMenu menuItems={menuItems}/>
                 </div>
                 <div className={styles.navWrapper}>
                     <div className={styles.desktopNav}>
@@ -48,7 +29,10 @@ export default function Header() {
                             </ul>
                         </nav>
                     </div>
-                    <span className={styles.tel}><a href="tel:089 888 777">089 888 777</a></span>
+                    <a className={styles.tel} href="tel:089 888 777">
+                        <Image src="./icons/phone-icon.svg" className="icon" style={{display: "inline-block"}} width={20} height={20} alt="telephone"/>
+                        <span>089 888 777</span>
+                    </a>
                 </div>
             </div>
         </header>

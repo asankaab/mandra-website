@@ -1,4 +1,4 @@
-import styles from './heading1.module.scss';
+import styles from './text.module.scss';
 
 export default function Heading1({ children, className }: { children: React.ReactNode, className?: string }) {
     return (

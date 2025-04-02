@@ -1,13 +1,16 @@
 .text {
     text-align: center;
-    @media (min-width: 1025px) {
+    @media (min-width: 1360px) {
         text-align: left;
     }
 }
 
 .main {
     position: relative;
-    margin-top: -5.1rem;
+
+    @media (min-width: 1360px) {
+        margin-top: calc(0px - (var(--size-sm) *2 + var(--size-md) *2 + var(--nav-link) + 20px));
+    }
 }
 
 .colLeft {
@@ -19,17 +22,29 @@
     height: 100vh;
     z-index: 2;
 
-    @media (min-width: 1025px) {
+    @media (min-width: 1360px) {
         align-items: flex-start;
         max-width: 50%;
-        padding-right: 10vw;
+        padding-right: 5rem;
     }
 
-    .buttonContainer {
+    .textBox {
         display: flex;
-        gap: 1rem;
-        margin-top: var(--size-sm);
+        flex-direction: column;
+        justify-content: center;
+
+        .buttonContainer {
+            display: flex;
+            justify-content: center;
+            gap: var(--size-sm);
+            margin-block: var(--size-sm);
+            
+            @media (min-width: 1360px) {
+                justify-content: flex-start;
+            }
+        }
     }
+
 }
 
 .colRight {
@@ -39,7 +54,44 @@
     right: 0;
     z-index: -1;
 
-    @media (min-width: 1025px) {
+    @media (min-width: 1360px) {
         width: 50%;
+    }
+}
+
+.socialContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--size-sm);
+    position: relative;
+    top: 15vh;
+
+    @media (min-width: 1360px) {
+        flex-direction: row;
+        top: 25vh;
+    }
+}
+
+.socialText {
+    font-size: calc(var(--nav-link) - 2px);
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: var(--size-md);
+
+    a {
+        transition: transform 200ms ease-in;
+
+        &:hover {
+            transform: scale(1.2);
+            border-radius: .2rem;
+            box-shadow: 0 0 10px #00000041;
+        }
     }
 }

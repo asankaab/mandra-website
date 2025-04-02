@@ -25,7 +25,7 @@
     overflow: hidden;
     max-height: 100vh;
     z-index: 1000;
-    padding-block: .5rem;
+    padding-block: var(--size-sm);
 
     @media (min-width: 1360px) {
         background: none;
@@ -81,8 +81,8 @@
     font-size: var(--nav-link);
     color: var(--color-black);
     display: block;
-    padding-block: 1.2rem;
-    padding-inline: 0.4rem;
+    padding-block: var(--size-md);
+    padding-inline: var(--size-sm);
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     animation: reveal 1.2s linear;
@@ -144,7 +144,7 @@
     font-size: var(--nav-link);
     color: var(--color-black);
     display: block;
-    padding-block: 1.2rem;
+    padding-block: var(--size-md);
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     transition: all 0.3s ease-in-out;
@@ -164,6 +164,32 @@
     display: none;
 
     @media (min-width: 1360px) {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: var(--size-sm);
+        background-color: var(--color-white);
+        border-radius: 100vh;
+        padding-block: var(--size-sm);
+        padding-inline: var(--size-sm);
+        letter-spacing: 0.1rem;
+        font-size: calc(var(--nav-link) + 2px) ;
+        border:1px solid var(--color-grey-light);
+        transition: all 200ms ease-out;
     }
+
+    &:hover {
+        transform: translate(-.5rem, .4rem);
+        box-shadow: 0px 0px 15px var(--color-white);
+    }
+}
+
+.telMob {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-sm);
+    font-size: 1.5rem;
+    padding-block: 1rem;
+    background-color: var(--color-grey-shade);
+    animation: reveal 1.3s linear;
 }
