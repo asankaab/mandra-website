@@ -3,11 +3,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { Collapsible } from "radix-ui";
 import styles from "./header.module.scss"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MobileMenu({ menuItems }: { menuItems: Array<{ name: string; href: string }> }) {
 
     const [state, setState] = useState(false);
+
+    useEffect(() => {
+
+        function setScrollAction() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 80) {
+                header?.setAttribute('data-scroll','true')
+            } else if (window.scrollY < 4) {
+                header?.removeAttribute('data-scroll')
+            }
+        }
+        
+        window.addEventListener('scroll', setScrollAction);
+        return() => window.removeEventListener('scroll', setScrollAction);
+        
+    },[])
 
     return (
         <Collapsible.Root onOpenChange={() => setState(!state)} className={styles.collapsibleRoot}>

@@ -5,8 +5,14 @@ import Carousel from "@/components/Carousel";
 import Button from "@/components/ui/Button";
 import Paragraph from "@/components/ui/Paragraph";
 import Image from "next/image";
+import { client } from "@/lib/client";
+import { HomepageEntrySkeleton } from "@/lib/types";
+import MiniTitle from "@/components/ui/MiniTitle";
+import ProjectCard from "@/components/ProjectCard";
 
 export default async function Home() {
+
+  // const homepageData = await client.getEntry<HomepageEntrySkeleton>('4enTabsbalVOcWNbC0sfYw')
 
   return (
   <>
@@ -14,7 +20,7 @@ export default async function Home() {
       <div className="wrapper">
         <div className={styles.colLeft}>
           <div className={styles.textBox}>
-            <Heading1 className={styles.text}>Making Every Moment Unforgettable.</Heading1>
+            <Heading1 className={styles.text}>homepageData fields mainHeading</Heading1>
             <Heading2 className={styles.text}>Welcome to our world of photography!</Heading2>
             <Paragraph className={styles.text}>Explore the interplay of light and shadow to create dramatic, moody, or ethereal photographs.</Paragraph>
             <div className={styles.buttonContainer}>
@@ -36,8 +42,13 @@ export default async function Home() {
         </div>
       </div>
     </main>
-    <section className={styles.section}>
+    <section className={styles.showcaseSection}>
       <div className="wrapper">
+        <MiniTitle>Showcase</MiniTitle>
+        <Heading1>Beautifully Capturing Human Memories.</Heading1>
+        <div className={styles.cardContainer}>
+          <ProjectCard/>
+        </div>
       </div>
     </section>
   </>

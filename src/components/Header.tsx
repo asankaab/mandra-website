@@ -6,10 +6,10 @@ import MobileMenu from "./MobileMenu";
 export default async function Header() {
 
     const menuItems = [
-        { name: "Showcase", href: "showcase" },
-        { name: "About", href: "about" },
-        { name: "Contact", href: "contact" },
-        { name: "Blog", href: "blog" }
+        { name: "Showcase", href: "/showcase" },
+        { name: "About", href: "/about" },
+        { name: "Contact", href: "/contact" },
+        { name: "Blog", href: "/blog" }
     ];
 
     return (

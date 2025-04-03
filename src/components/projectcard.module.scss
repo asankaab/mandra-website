@@ -1,0 +1,17 @@
+@use '../app/main';
+
+.card {
+    text-align: left;
+    border: 1px solid main.$color-grey-light;
+    background-color: main.$color-grey-shade;
+}
+
+
+
+
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}

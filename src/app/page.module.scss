@@ -1,3 +1,5 @@
+@use 'main';
+
 .text {
     text-align: center;
     @media (min-width: 1360px) {
@@ -7,9 +9,10 @@
 
 .main {
     position: relative;
+    margin-top: calc(0px - (main.$size-sm *2 + main.$size-md *2 + main.$nav-link - 10px));
 
     @media (min-width: 1360px) {
-        margin-top: calc(0px - (var(--size-sm) *2 + var(--size-md) *2 + var(--nav-link) + 20px));
+        margin-top: calc(0px - (main.$size-sm *2 + main.$size-md *2 + main.$nav-link + 20px));
     }
 }
 
@@ -36,8 +39,8 @@
         .buttonContainer {
             display: flex;
             justify-content: center;
-            gap: var(--size-sm);
-            margin-block: var(--size-sm);
+            gap: main.$size-sm;
+            margin-block: main.$size-sm;
             
             @media (min-width: 1360px) {
                 justify-content: flex-start;
@@ -64,9 +67,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--size-sm);
+    gap: main.$size-sm;
     position: relative;
-    top: 15vh;
+    top: 12vh;
 
     @media (min-width: 1360px) {
         flex-direction: row;
@@ -75,7 +78,7 @@
 }
 
 .socialText {
-    font-size: calc(var(--nav-link) - 2px);
+    font-size: calc(main.$body - 5px);
     letter-spacing: .2rem;
     text-transform: uppercase;
 }
@@ -83,7 +86,7 @@
 .icons {
     display: flex;
     align-items: center;
-    gap: var(--size-md);
+    gap: main.$size-md;
 
     a {
         transition: transform 200ms ease-in;
@@ -93,5 +96,19 @@
             border-radius: .2rem;
             box-shadow: 0 0 10px #00000041;
         }
+    }
+}
+
+/* showcase section */
+
+.showcaseSection {
+    @include main.section;
+
+    & {
+        text-align: center;
+    }
+
+    .cardContainer {
+        position: relative;
     }
 }

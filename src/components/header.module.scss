@@ -1,3 +1,5 @@
+@use '../app/main';
+
 .mobileNav {
     display:  block;
 
@@ -19,20 +21,29 @@
 
 .header {
     background-color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid var(--color-grey-light);
+    border-bottom: 1px solid main.$color-grey-light;
     position: sticky;
     top: 0;
     overflow: hidden;
     max-height: 100vh;
     z-index: 1000;
-    padding-block: var(--size-sm);
+    padding-block: main.$size-sm;
+    transition: background-color .2s ease-in;
 
     @media (min-width: 1360px) {
         background: none;
         border: none;
         padding-block: .8rem;
+
+        &[data-scroll=true] {
+            background-color: main.$color-white;
+            border-bottom: 1px solid main.$color-grey-shade;
+            box-shadow: 0px 2px 5px #00000010;
+        }
     }
+
 }
+
 
 .collapsibleRoot {
     width: 100%;
@@ -57,10 +68,10 @@
 }
 
 .menuContent {
-    background-color: var(--color-white);
+    background-color: main.$color-white;
     width: 100%;
     height: 100vh;
-    box-shadow: 1px 20px 0px 20px var(--color-white);
+    box-shadow: 1px 20px 0px 20px main.$color-white;
     margin-top: .5rem;
 }
 
@@ -74,18 +85,22 @@
 .li {
     display: block;
     overflow: hidden;
-    border-bottom: 1px solid var(--color-grey-light);
+    border-bottom: 1px solid main.$color-grey-light;
 }
 
 .menuItem {
-    font-size: var(--nav-link);
-    color: var(--color-black);
+    font-size: main.$nav-link;
+    color: main.$color-black;
     display: block;
-    padding-block: var(--size-md);
-    padding-inline: var(--size-sm);
+    padding-block: main.$size-md;
+    padding-inline: main.$size-sm;
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     animation: reveal 1.2s linear;
+
+    &:focus-visible, &:hover {
+        color: main.$color-grey;
+    }
 }
 
 @keyframes reveal {
@@ -141,22 +156,22 @@
 }
 
 .desktopMenuItem {
-    font-size: var(--nav-link);
-    color: var(--color-black);
+    font-size: main.$nav-link;
+    color: main.$color-black;
     display: block;
-    padding-block: var(--size-md);
+    padding-block: main.$size-md;
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     transition: all 0.3s ease-in-out;
 
     &::before {
         content: "/";
-        color: var(--color-grey);
+        color: main.$color-grey;
         padding-right: .5rem;
     }
 
     &:hover, &:focus-visible {
-        color: var(--color-grey-light);
+        color: main.$color-grey-light;
     }
 }
 
@@ -166,20 +181,20 @@
     @media (min-width: 1360px) {
         display: flex;
         align-items: center;
-        gap: var(--size-sm);
-        background-color: var(--color-white);
+        gap: main.$size-sm;
+        background-color: main.$color-white;
         border-radius: 100vh;
-        padding-block: var(--size-sm);
-        padding-inline: var(--size-sm);
+        padding-block: main.$size-sm;
+        padding-inline: main.$size-sm;
         letter-spacing: 0.1rem;
-        font-size: calc(var(--nav-link) + 2px) ;
-        border:1px solid var(--color-grey-light);
+        font-size: main.$nav-link ;
+        border:1px solid main.$color-grey-light;
         transition: all 200ms ease-out;
     }
 
     &:hover {
         transform: translate(-.5rem, .4rem);
-        box-shadow: 0px 0px 15px var(--color-white);
+        box-shadow: 0px 0px 15px main.$color-white;
     }
 }
 
@@ -187,9 +202,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--size-sm);
+    gap: main.$size-sm;
     font-size: 1.5rem;
     padding-block: 1rem;
-    background-color: var(--color-grey-shade);
+    background-color: main.$color-grey-shade;
     animation: reveal 1.3s linear;
 }

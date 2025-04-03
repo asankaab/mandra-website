@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Baskervville, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
-import "./main.css";
+import "./main.scss";
 import Header from "@/components/Header";
 
 const BaskervvilleSerif = Baskervville({

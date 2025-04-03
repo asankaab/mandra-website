@@ -1,31 +1,33 @@
+@use '../../app/main';
+
 .default {
-    background-color: var(--color-black);
-    color: var(--color-white);
-    border: 1px solid var(--color-black);
+    background-color: main.$color-black;
+    color: main.$color-white;
+    border: 1px solid main.$color-black;
     border-radius: 0;
-    padding-block: var(--size-sm);
-    padding-inline: var(--size-md);
+    padding-block: main.$size-sm;
+    padding-inline: main.$size-md;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    font-size: var(--body);
+    font-size: main.$body;
 
     &:hover {
-        background-color: var(--color-grey-dark);
+        background-color: main.$color-grey-dark;
     }
 }
 
 .outline {
     background-color: transparent;
-    color: var(--color-black);
-    border: 1px solid var(--color-black);
+    color: main.$color-black;
+    border: 1px solid main.$color-black;
     border-radius: 0;
-    padding-block: var(--size-sm);
-    padding-inline: var(--size-md);
+    padding-block: main.$size-sm;
+    padding-inline: main.$size-md;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    font-size: var(--body);
+    font-size: main.$body;
 
     &:hover {
-        background-color: var(--color-grey-light);
+        background-color: main.$color-grey-light;
     }
 }
