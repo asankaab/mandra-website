@@ -31,7 +31,6 @@ export default function Carousel({ srcList }: { srcList: Array<string> }) {
             </SwiperSlide>
         ))}
         <div className={styles.overlay}>
-            <Image src="/triangle.svg" alt="Triangle" width={30} height={60} className={styles.triangle} />
             <Image src="/images/logo_faded.png" alt="Logo" width={350} height={350} />
         </div>
         </Swiper>

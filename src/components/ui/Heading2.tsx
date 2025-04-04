@@ -1,8 +1,9 @@
 import styles from './text.module.scss';
 
-export default function Heading2({ children, className }: { children: React.ReactNode, className?: string }) {
+export default function Heading2({ children, className, bold }
+    : { children: React.ReactNode, className?: string, bold?: boolean }) {
     
     return (
-        <h3 className={`${styles.heading2} ${className}`}>{children}</h3>
+        <h3 className={`${styles.heading2} ${className} ${bold ? styles.bold : ''}`}>{children}</h3>
     )
 }

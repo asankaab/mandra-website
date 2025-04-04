@@ -9,10 +9,11 @@
 
 .main {
     position: relative;
-    margin-top: calc(0px - (main.$size-sm *2 + main.$size-md *2 + main.$nav-link - 10px));
+    margin-top: calc(0px - (main.$size-sm *2 + main.$size-sm *2 + main.$nav-link - 0.8rem));
+    margin-bottom: calc(main.$section-padding*2);
 
     @media (min-width: 1360px) {
-        margin-top: calc(0px - (main.$size-sm *2 + main.$size-md *2 + main.$nav-link + 20px));
+        margin-top: calc(0px - (main.$size-sm *2 + main.$size-sm *2 + main.$nav-link + 1rem));
     }
 }
 
@@ -101,14 +102,22 @@
 
 /* showcase section */
 
-.showcaseSection {
+.section {
     @include main.section;
-
+    
     & {
         text-align: center;
     }
+}
 
-    .cardContainer {
-        position: relative;
-    }
+.cardContainer {
+    @include main.container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: main.$size-sm;
+}
+
+.serviceContainer {
+    @include main.container;
 }

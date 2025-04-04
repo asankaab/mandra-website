@@ -8,6 +8,9 @@
   $color-grey-shade: #FAFAFA;
 
   /* fonts */
+
+  $font-baskervville: var(--font-Baskervville);
+  $font-bricolage: var(--font-bricolage-grotesque);
   
   $heading1: clamp(2rem, 4vw - 2rem, 3.8em);
   $heading2: clamp(1.5rem, 3.4vw - 2rem, 2.8rem);
@@ -17,11 +20,11 @@
 
   /* spacing */
 
-  $size-xs: 0.25rem;
-  $size-sm: .5rem;
-  $size-md: 1rem;
-  $size-lg: 2rem;
-  $size-xl: 4rem;
+  $size-xs: var(--size-xs);
+  $size-sm: var(--size-sm);
+  $size-md: var(--size-md);
+  $size-lg: var(--size-lg);
+  $size-xl: var(--size-xl);
 
 /* Global styles */
 
@@ -34,7 +37,7 @@
   
   @media (min-width: 3800px) {
     margin: 0 auto;
-    max-width: 2600px;
+    max-width: 3000px;
   }
 }
 
@@ -52,12 +55,14 @@
     margin: $size-sm;
   }
 }
-  
+
+$section-padding: $size-lg;
 
 @mixin section {
-  padding-block: $size-md;
+  padding-block: $section-padding;
+}
 
-  @media (min-width: 1360px) {
-    padding-block: $size-xl;
-  }
+@mixin container {
+  position: relative;
+  padding-block: $size-md;
 }

@@ -1,4 +1,7 @@
 /* CSS reset */
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -98,5 +101,22 @@ textarea:not([rows]) {
 
 
 
-/* ========================================================= */
+/* ============== global variables ========== */
 
+:root {
+  --size-xs: 0.25rem;
+  --size-sm: .5rem;
+  --size-md: 1rem;
+  --size-lg: 2rem;
+  --size-xl: 4rem;
+}
+
+@media (min-width: 1360px) {
+  :root {
+    --size-xs: calc(0.25rem + .1rem);
+    --size-sm: calc(.5rem + .25rem);
+    --size-md: calc(1rem + .25rem);
+    --size-lg: calc(2rem + .5rem);
+    --size-xl: calc(4rem + .5rem);
+  }
+}

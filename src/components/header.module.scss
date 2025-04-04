@@ -20,14 +20,14 @@
 }
 
 .header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: main.$color-white;
     border-bottom: 1px solid main.$color-grey-light;
     position: sticky;
     top: 0;
     overflow: hidden;
     max-height: 100vh;
     z-index: 1000;
-    padding-block: main.$size-sm;
+    padding-block: main.$size-xs;
     transition: background-color .2s ease-in;
 
     @media (min-width: 1360px) {
@@ -159,7 +159,7 @@
     font-size: main.$nav-link;
     color: main.$color-black;
     display: block;
-    padding-block: main.$size-md;
+    padding-block: main.$size-sm;
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     transition: all 0.3s ease-in-out;

@@ -9,6 +9,7 @@ import { client } from "@/lib/client";
 import { HomepageEntrySkeleton } from "@/lib/types";
 import MiniTitle from "@/components/ui/MiniTitle";
 import ProjectCard from "@/components/ProjectCard";
+import ServiceBox from "@/components/ServiceBox";
 
 export default async function Home() {
 
@@ -21,7 +22,7 @@ export default async function Home() {
         <div className={styles.colLeft}>
           <div className={styles.textBox}>
             <Heading1 className={styles.text}>homepageData fields mainHeading</Heading1>
-            <Heading2 className={styles.text}>Welcome to our world of photography!</Heading2>
+            <Heading2 bold className={styles.text}>Welcome to our world of photography!</Heading2>
             <Paragraph className={styles.text}>Explore the interplay of light and shadow to create dramatic, moody, or ethereal photographs.</Paragraph>
             <div className={styles.buttonContainer}>
                 <Button href="/showcase">Showcase</Button>
@@ -42,12 +43,24 @@ export default async function Home() {
         </div>
       </div>
     </main>
-    <section className={styles.showcaseSection}>
+    <section className={styles.section}>
       <div className="wrapper">
         <MiniTitle>Showcase</MiniTitle>
         <Heading1>Beautifully Capturing Human Memories.</Heading1>
         <div className={styles.cardContainer}>
-          <ProjectCard/>
+          <div className={styles.cardContainer}>
+            <ProjectCard href="#"/>
+          </div>
+          <Button varient="outline">See More Projects</Button>
+        </div>
+      </div>
+    </section>
+    <section className={styles.section}>
+      <div className="wrapper">
+        <MiniTitle>Our Style</MiniTitle>
+        <Heading1>Elegant, Timeless, and artistic Photography Style</Heading1>
+        <div className={styles.serviceContainer}>
+            <ServiceBox/>
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
+@use '../app/main.scss';
+
 .swiper {
     height: 100dvh;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .heroImage {
@@ -18,14 +20,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.triangle {
-    display: none;
 
     @media (min-width: 1360px) {
-        display: block;
-        position: absolute;
-        left: -5px;
+        &:after {
+            content: '';
+            display: block;
+            width: 2vw;
+            height: 2vw;
+            background-color: main.$color-white;
+            position: absolute;
+            left: 0;
+            clip-path: polygon(0 0, 0 100%, 50% 50%);
+        }
     }
 }

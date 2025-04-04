@@ -1,0 +1,27 @@
+@use '../app/main.scss';
+
+.servicebox {
+    text-align: start;
+    display: grid;
+    grid-template-columns: 1fr 8fr 3fr;
+    justify-items: stretch;
+    align-items: center;
+    border-bottom: 1px solid main.$color-grey;
+
+    .col2 {
+        grid-column: 2/3;
+    }
+
+    .imagebox {
+        justify-self: end;
+        grid-column: 3/4;
+        position: relative;
+        width: 220px;
+        height: 180px;
+
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
