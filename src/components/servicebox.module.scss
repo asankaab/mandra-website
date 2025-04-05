@@ -6,22 +6,38 @@
     grid-template-columns: 1fr 8fr 3fr;
     justify-items: stretch;
     align-items: center;
+    gap: main.$size-sm;
     border-bottom: 1px solid main.$color-grey;
+
+    .number {
+        font-style: italic;
+        color: main.$color-grey;
+    }
+
+    p {
+        color: main.$color-grey;
+    }
 
     .col2 {
         grid-column: 2/3;
     }
 
-    .imagebox {
+    .imageBox {
         justify-self: end;
+        align-self: stretch;
         grid-column: 3/4;
         position: relative;
-        width: 220px;
-        height: 180px;
+        min-width: 6rem;
+        min-height: 5rem;
 
         img {
             object-fit: cover;
             object-position: center;
+        }
+
+        @media (min-width: 1360px) {           
+            min-width: 12rem;
+            min-height: 8rem;
         }
     }
 }

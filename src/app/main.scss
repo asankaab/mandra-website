@@ -4,16 +4,16 @@
   $color-white: #fff;
   $color-grey: #808080;
   $color-grey-light: #E6E6E6;
-  $color-grey-dark: #272727;
-  $color-grey-shade: #FAFAFA;
+  $color-grey-dark: #333333;
+  $color-grey-shade: #F9F9F9;
 
   /* fonts */
 
   $font-baskervville: var(--font-Baskervville);
   $font-bricolage: var(--font-bricolage-grotesque);
   
-  $heading1: clamp(2rem, 4vw - 2rem, 3.8em);
-  $heading2: clamp(1.5rem, 3.4vw - 2rem, 2.8rem);
+  $heading1: clamp(1.8rem, 4vw - 2rem, 3.8em);
+  $heading2: clamp(1.4rem, 3.4vw - 2rem, 2.8rem);
   $nav-link: clamp(.8rem, 1.4vw - 2rem, 1.8rem);
   $mini-title: clamp(.8rem, 2vw - 2rem, 2rem);
   $body: clamp(1rem, 2vw - 2rem, 2rem);
@@ -65,4 +65,16 @@ $section-padding: $size-lg;
 @mixin container {
   position: relative;
   padding-block: $size-md;
+}
+
+// footer
+
+.flex-container {
+  color: $color-grey;
+  padding-block: $section-padding;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
 }

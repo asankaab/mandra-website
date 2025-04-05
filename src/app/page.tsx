@@ -10,6 +10,9 @@ import { HomepageEntrySkeleton } from "@/lib/types";
 import MiniTitle from "@/components/ui/MiniTitle";
 import ProjectCard from "@/components/ProjectCard";
 import ServiceBox from "@/components/ServiceBox";
+import BlogCard from "@/components/BlogCard";
+import NewsletterForm from "@/components/NewsletterForm";
+import Icon from "@/components/ui/Icon";
 
 export default async function Home() {
 
@@ -25,17 +28,18 @@ export default async function Home() {
             <Heading2 bold className={styles.text}>Welcome to our world of photography!</Heading2>
             <Paragraph className={styles.text}>Explore the interplay of light and shadow to create dramatic, moody, or ethereal photographs.</Paragraph>
             <div className={styles.buttonContainer}>
-                <Button href="/showcase">Showcase</Button>
-                <Button varient="outline">Book Now</Button>
+                <Button href="showcase">Showcase</Button>
+                <Button href="contact" varient="outline">Book Now</Button>
             </div>
           </div>
           <div className={styles.socialContainer}>
             <p className={styles.socialText}>Connect with us</p>
             <div className={styles.icons}>
-              <a title="facebook" href="https://facebook.com/#"><Image className="icon" src="/icons/facebook.svg" width={25} height={25} alt="facebook"/></a>
-              <a title="instagram" href="https://instagram.com/#"><Image className="icon" src="/icons/instagram.svg" width={25} height={25} alt="instagram"/></a>
-              <a title="youtube" href="https://youtube.com/#"><Image className="icon" src="/icons/youtube.svg" width={25} height={25} alt="youtube"/></a>
-              <a title="flickr" href="https://flickr.com/#"><Image className="icon" src="/icons/flickr.svg" width={25} height={25} alt="flickr"/></a>          </div>
+                <a title="facebook" href="https://facebook.com/#"><Icon name="arrow" color="red"/></a>
+                <a title="instagram" href="https://instagram.com/#"><Icon name="facebook"/></a>
+                <a title="youtube" href="https://youtube.com/#"><Icon name="facebook"/></a>
+                <a title="flickr" href="https://flickr.com/#"><Icon name="facebook"/></a>
+              </div>
             </div>   
           </div>
         <div className={styles.colRight}>
@@ -61,6 +65,47 @@ export default async function Home() {
         <Heading1>Elegant, Timeless, and artistic Photography Style</Heading1>
         <div className={styles.serviceContainer}>
             <ServiceBox/>
+        </div>
+      </div>
+    </section>
+    <section className={styles.section}>
+      <div className="wrapper">
+        <MiniTitle>Our Team</MiniTitle>
+        <Heading1>Your Story, Our Vision, Perfectly Captured.</Heading1>
+        <div className={styles.teamContainer}>
+            <div className={styles.imageBox}>
+                <Image src={'/images/hero-4.jpg'} fill alt=""/>
+            </div>
+            <div className={styles.col2}>
+                <Heading2 bold>Marshall Greenholt</Heading2>
+                <Paragraph>Marshall Greenholt is a visionary photographer known for his remarkable ability to capture the extraordinary in everyday moments. Through his lens, he weaves stories that blend artistic expression with a keen eye for detail.
+Specializing in Marshalls work stands out for its, making his portfolio both diverse and captivating.</Paragraph>
+            </div>
+        </div>
+            <Button varient="outline">Read More About Us</Button>
+      </div>
+    </section>
+    <section className={styles.section}>
+      <div className="wrapper">
+        <MiniTitle>Blog</MiniTitle>
+        <Heading1>Get Updated With Latest Content.</Heading1>
+        <div className={styles.blogContainer}>
+            <BlogCard href="#"/><BlogCard href="#"/><BlogCard href="#"/><BlogCard href="#"/>
+        </div>
+            <Button varient="outline">Read Our Blog</Button>
+      </div>
+    </section>
+    <section className={styles.section}>
+      <div className="wrapper">
+        <div className={styles.formContainer}>
+          <div>
+            <Heading2 bold>Join the mailing list!</Heading2>
+            <Paragraph>Sign up for our mailing list for occasional updates, seasonal offers, and special events!</Paragraph>
+            <NewsletterForm/>
+          </div>
+          <div className={styles.bg}>
+            <Image src={'/images/at-symbol.svg'} width={400} height={300} alt="background" />
+          </div>
         </div>
       </div>
     </section>

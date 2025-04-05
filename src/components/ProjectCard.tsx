@@ -11,7 +11,7 @@ export default async function ProjectCard({ href }: {href: string}) {
         <Link href={href} className={styles.link}>
             <div className={styles.card}>
                 <div className={styles.textBox}>
-                    <Heading2>Natural light headshot/portrait but with the feel of a studio session</Heading2>
+                    <Heading2 bold>Natural light headshot/portrait but with the feel of a studio session</Heading2>
                     <Paragraph>From the bustling streets at dawn to the solitude of moonlit nights, Life in Light and Shadow is a visual journey that celebrates resilience and the profound connections between brightness and obscurity.</Paragraph>
                 </div>
                 <div className={styles.grid}>

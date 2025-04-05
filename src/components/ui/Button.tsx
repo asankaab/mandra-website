@@ -2,8 +2,16 @@ import { ReactNode } from 'react';
 import styles from './button.module.scss';
 import Link from 'next/link';
 
+interface ButtonProps {
+    children: ReactNode;
+    className?: string;
+    varient?: string;
+    href?: string;
+    type?: "button" | "submit" | "reset";
+}
+
 export default function Button({ children, className, varient, href, ...props }
-    : { children: ReactNode; className?: string; varient?: string; href?: string }) {
+    : ButtonProps ) {
 
         const style = styles[varient || 'default']
 

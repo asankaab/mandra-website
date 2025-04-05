@@ -7,12 +7,12 @@ import styles from "./servicebox.module.scss";
 export default function ServiceBox() {
     return (
         <div className={styles.servicebox}>
-            <Heading1>01</Heading1>
+            <Heading1 className={styles.number}>01</Heading1>
             <div className={styles.col2}>
                 <Heading2>Graduation Portraits</Heading2>
                 <Paragraph>Risus placerat ante nullam pretium velit placerat.</Paragraph>
             </div>
-            <div className={styles.imagebox}>
+            <div className={styles.imageBox}>
                 <Image src={'/images/hero-4.jpg'} fill alt=""/>
             </div>
         </div>

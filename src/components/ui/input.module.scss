@@ -1,0 +1,13 @@
+@use "../../app/main.scss";
+
+.input {
+    box-sizing: border-box;
+    padding: main.$size-md;
+    border: 1px solid main.$color-grey-light;
+    background-color: main.$color-grey-shade;
+
+    &:focus {
+        background-color: main.$color-white;
+        outline: 1px solid main.$color-grey;
+    }
+}

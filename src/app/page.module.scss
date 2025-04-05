@@ -121,3 +121,70 @@
 .serviceContainer {
     @include main.container;
 }
+
+.teamContainer {
+    @include main.container;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    gap: main.$size-sm;
+    text-align: left;
+
+    .imageBox {
+        position: relative;
+        min-width: 4rem;
+        min-height: 4rem;
+        aspect-ratio: 1;
+
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
+.blogContainer {
+    @include main.container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: main.$size-sm;
+
+    @media (min-width: 1360px) {
+        grid-template-columns: repeat(2, 1fr);        
+    }
+}
+
+.formContainer {
+    position: relative;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    .bg {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        place-content: center;
+        position: absolute;
+
+        img {
+            object-fit: contain;
+            object-position: center;
+            transform-origin: center;
+            z-index: -1;
+            opacity: .5;
+            right: 0;
+        }
+    }
+
+    @media (min-width: 1360px) {
+        flex-direction: row;
+
+        .bg {
+            position: relative;
+            width: 50%;
+        }
+    }
+}

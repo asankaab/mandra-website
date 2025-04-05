@@ -1,0 +1,16 @@
+@use "../app/main.scss";
+
+.form {
+    text-align: left;
+    max-width: fit-content;
+    display: grid;
+    align-items: start;
+    gap: main.$size-sm;
+    min-width: 100%;
+
+    @media (min-width: 1360px) {
+        button {
+            justify-self: start;
+        }
+    }
+}
