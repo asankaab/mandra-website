@@ -1,0 +1,149 @@
+
+@keyframes openingb1 {
+    0% {
+        transform: translateY(-11px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes closingb1 {
+    0% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-11px);
+        opacity: 1;
+    }
+}
+/****************/
+
+@keyframes openingb3 {
+    0% {
+        transform: translateY(11px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes closingb3 {
+    0% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(11px);
+        opacity: 1;
+    }
+}
+/****************/
+
+@keyframes openingb2 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes closingb2 {
+    0% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+/****************/
+
+@keyframes openingb4 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes closingb4 {
+    0% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+/****************/
+
+.open {
+    .bar1{
+        animation-name: openingb1;
+    }
+    .bar2 {
+        animation-name: openingb2;
+    }
+    .bar3 {
+        animation-name: openingb3;
+    }
+    .bar4 {
+        animation-name: openingb4;
+    }
+}
+
+.close {
+    .bar1{
+        animation-name: closingb1;
+    }
+    .bar2 {
+        animation-name: closingb2;
+    }
+    .bar3 {
+        animation-name: closingb3;
+    }
+    .bar4 {
+        animation-name: closingb4;
+    }
+}
+
+
+.bar1, .bar2, .bar3, .bar4 {
+    transform-origin: center;
+    animation-timing-function: ease-in;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+
+.bar1 {
+    transform: translateY(-11px);
+}
+.bar2 {
+    transform: translateY(11px);
+}

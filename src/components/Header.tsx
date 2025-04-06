@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./header.module.scss"
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import Icon from "./ui/Icon";
 
 export default async function Header() {
 
@@ -30,8 +31,7 @@ export default async function Header() {
                         </nav>
                     </div>
                     <a className={styles.tel} href="tel:089 888 777">
-                        <Image src="./icons/phone-icon.svg" className="icon" style={{display: "inline-block"}} width={20} height={20} alt="telephone"/>
-                        <span>089 888 777</span>
+                        <Icon name="phone"/><span>089 888 777</span>
                     </a>
                 </div>
             </div>

@@ -84,21 +84,6 @@
     text-transform: uppercase;
 }
 
-.icons {
-    display: flex;
-    align-items: center;
-    gap: main.$size-md;
-
-    a {
-        transition: transform 200ms ease-in;
-
-        &:hover {
-            transform: scale(1.2);
-            border-radius: .2rem;
-            box-shadow: 0 0 10px #00000041;
-        }
-    }
-}
 
 /* showcase section */
 

@@ -34,11 +34,11 @@ export default async function Home() {
           </div>
           <div className={styles.socialContainer}>
             <p className={styles.socialText}>Connect with us</p>
-            <div className={styles.icons}>
-                <a title="facebook" href="https://facebook.com/#"><Icon name="arrow" color="red"/></a>
-                <a title="instagram" href="https://instagram.com/#"><Icon name="facebook"/></a>
-                <a title="youtube" href="https://youtube.com/#"><Icon name="facebook"/></a>
-                <a title="flickr" href="https://flickr.com/#"><Icon name="facebook"/></a>
+            <div className="icon-container">
+                <a className="icon-link" title="facebook" href="https://facebook.com/#"><Icon name="facebook"/></a>
+                <a className="icon-link" title="instagram" href="https://instagram.com/#"><Icon name="instagram"/></a>
+                <a className="icon-link" title="youtube" href="https://youtube.com/#"><Icon name="youtube"/></a>
+                <a className="icon-link" title="flickr" href="https://flickr.com/#"><Icon name="flickr"/></a>
               </div>
             </div>   
           </div>
@@ -104,7 +104,7 @@ Specializing in Marshalls work stands out for its, making his portfolio both div
             <NewsletterForm/>
           </div>
           <div className={styles.bg}>
-            <Image src={'/images/at-symbol.svg'} width={400} height={300} alt="background" />
+            <Image src={'/icons/at-symbol.svg'} width={400} height={300} alt="background" />
           </div>
         </div>
       </div>
