@@ -10,7 +10,8 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import Image from "next/image";
 import styles from "./carousel.module.scss";
 
-export default function Carousel({ srcList }: { srcList: Array<string> }) {
+
+export default function Carousel({ imagesArray }: { imagesArray: { fields: { title: string; file: { url: string } } }[] }) {
     return (
         <Swiper className={styles.swiper}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -20,10 +21,10 @@ export default function Carousel({ srcList }: { srcList: Array<string> }) {
         spaceBetween={50}
         centeredSlides={true}
         >
-        {srcList.map((src: string, index: number) => (
+        {imagesArray.map((url: { fields: { title: string, file: { url: string }}}, index: number) => (
             <SwiperSlide key={index} className="swiper-slide">
                 <Image
-                    src={src}
+                    src={"https:" + url.fields.file.url}
                     alt={"Slide Image-" + index}
                     fill
                     className={styles.heroImage}

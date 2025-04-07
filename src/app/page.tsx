@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 import Paragraph from "@/components/ui/Paragraph";
 import Image from "next/image";
 import { client } from "@/lib/client";
-import { HomepageEntrySkeleton } from "@/lib/types";
+import { HomepageEntrySkeleton, ProjectEntrySkeleton } from "@/lib/types";
 import MiniTitle from "@/components/ui/MiniTitle";
 import ProjectCard from "@/components/ProjectCard";
 import ServiceBox from "@/components/ServiceBox";
@@ -16,7 +16,8 @@ import Icon from "@/components/ui/Icon";
 
 export default async function Home() {
 
-  // const homepageData = await client.getEntry<HomepageEntrySkeleton>('4enTabsbalVOcWNbC0sfYw')
+  const homepageData = await client.getEntry<HomepageEntrySkeleton>('4enTabsbalVOcWNbC0sfYw')
+  const showcaseData = await client.getEntries<ProjectEntrySkeleton>({content_type: 'project', limit: 2});
 
   return (
   <>
@@ -24,9 +25,9 @@ export default async function Home() {
       <div className="wrapper">
         <div className={styles.colLeft}>
           <div className={styles.textBox}>
-            <Heading1 className={styles.text}>homepageData fields mainHeading</Heading1>
-            <Heading2 bold className={styles.text}>Welcome to our world of photography!</Heading2>
-            <Paragraph className={styles.text}>Explore the interplay of light and shadow to create dramatic, moody, or ethereal photographs.</Paragraph>
+            <Heading1 className={styles.text}>{homepageData.fields.mainHeading}</Heading1>
+            <Heading2 bold className={styles.text}>{homepageData.fields.subHeading}</Heading2>
+            <Paragraph className={styles.text}>{homepageData.fields.description}</Paragraph>
             <div className={styles.buttonContainer}>
                 <Button href="showcase">Showcase</Button>
                 <Button href="contact" varient="outline">Book Now</Button>
@@ -35,15 +36,15 @@ export default async function Home() {
           <div className={styles.socialContainer}>
             <p className={styles.socialText}>Connect with us</p>
             <div className="icon-container">
-                <a className="icon-link" title="facebook" href="https://facebook.com/#"><Icon name="facebook"/></a>
-                <a className="icon-link" title="instagram" href="https://instagram.com/#"><Icon name="instagram"/></a>
-                <a className="icon-link" title="youtube" href="https://youtube.com/#"><Icon name="youtube"/></a>
-                <a className="icon-link" title="flickr" href="https://flickr.com/#"><Icon name="flickr"/></a>
+              {homepageData.fields.social.map((link) => {
+                const name = link.split("/")[2].split(".")[0]
+                return <a className="icon-link" title={name} href={link} key={link}><Icon name={name}/></a>
+              })}
               </div>
             </div>   
           </div>
         <div className={styles.colRight}>
-          <Carousel srcList={["/images/hero-1.jpg", "/images/hero-2.jpg", "/images/hero-3.jpg", "/images/hero-4.jpg", ]}/>
+          <Carousel imagesArray={homepageData.fields.heroImages}/>
         </div>
       </div>
     </main>
@@ -53,7 +54,11 @@ export default async function Home() {
         <Heading1>Beautifully Capturing Human Memories.</Heading1>
         <div className={styles.cardContainer}>
           <div className={styles.cardContainer}>
-            <ProjectCard href="#"/>
+            {showcaseData.items.map((projectEntry) => {
+              return (
+                <ProjectCard title={projectEntry.fields.title} description={projectEntry.fields.shortDescription} media={projectEntry.fields.media} key={projectEntry.fields.slug} href={projectEntry.fields.slug} />
+              )
+            })}
           </div>
           <Button varient="outline">See More Projects</Button>
         </div>

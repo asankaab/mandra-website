@@ -1,6 +1,8 @@
 @use '../app/main.scss';
 
 .footer {
+    position: relative;
+    z-index: 8;
 
     .container {
         @include main.container;

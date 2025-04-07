@@ -7,10 +7,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    z-index: 100;
 }
 
 .container {
-    --uib-size: 35px;
+    --uib-size: 5vh;
     --uib-color: black;
     --uib-speed: 1.2s;
     --uib-bg-opacity: .1;

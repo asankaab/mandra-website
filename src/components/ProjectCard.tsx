@@ -5,19 +5,23 @@ import styles from "./projectcard.module.scss"
 import Icon from "./ui/Icon";
 import Link from "next/link";
 
-export default async function ProjectCard({ href }: {href: string}) {
-    
+export default async function ProjectCard({ title, description, href, media }: {title: string, description: string, href: string, media: Array<{ fields: { title: string, file: { url: string }}}>}) {
+
     return (
-        <Link href={href} className={styles.link}>
+        <Link href={"showcase/" + href} className={styles.link}>
             <div className={styles.card}>
                 <div className={styles.textBox}>
-                    <Heading2 bold>Natural light headshot/portrait but with the feel of a studio session</Heading2>
-                    <Paragraph>From the bustling streets at dawn to the solitude of moonlit nights, Life in Light and Shadow is a visual journey that celebrates resilience and the profound connections between brightness and obscurity.</Paragraph>
+                    <Heading2 bold>{title}</Heading2>
+                    <Paragraph>{description}</Paragraph>
                 </div>
                 <div className={styles.grid}>
-                    <div className={styles.box}><Image className={styles.image} src={'/images/hero-1.jpg'} fill alt="image"/></div>
-                    <div className={styles.box}><Image className={styles.image} src={'/images/hero-2.jpg'} fill alt="image"/></div>
-                    <div className={styles.bottom}><Image className={styles.image} src={'/images/hero-3.jpg'} fill alt="image"/></div>
+                    {media.slice(0,3).map((imageEntry, index) => {
+                        return (
+                            <div key={imageEntry.fields.title} className={index === 2 ? styles.bottom : styles.box}>
+                                <Image className={styles.image} src={"https:" + imageEntry.fields.file.url} fill alt={imageEntry.fields.title}/>
+                            </div>
+                        )
+                    })}
                     <div className={styles.arrow}>
                         <Icon name="arrow"/>
                     </div>
