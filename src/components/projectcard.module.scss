@@ -19,9 +19,32 @@
         gap: main.$size-md;
     }
 
-    .textBox {
+    .textBox { 
+        
+        .date {
+                p {
+                    font-size: main.$mini-title;
+                    color: main.$color-grey;
+                    background-color: main.$color-grey-shade;
+                    border: 1px solid main.$color-grey-light;
+                    border-radius: 100vh;
+                    padding-block: main.$size-xs;
+                    padding-inline: main.$size-sm;
+                    display: inline-block;
+                    margin-bottom: main.$size-xs;
+                }
+            }
+            
         @media (min-width: 1360px) {
-            padding-block: main.$size-lg;
+            // padding-block: main.$size-lg;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            P {
+                margin-bottom: 0;
+            }
         }
     }
 

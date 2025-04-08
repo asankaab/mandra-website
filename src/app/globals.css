@@ -109,6 +109,13 @@ textarea:not([rows]) {
   --size-md: 1rem;
   --size-lg: 2rem;
   --size-xl: 4rem;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-grey: #808080;
+  --color-grey-light: #E6E6E6;
+  --color-grey-dark: #333333;
+  --color-grey-shade: #F9F9F9;
 }
 
 @media (min-width: 1360px) {

@@ -38,7 +38,7 @@ export default async function Home() {
             <div className="icon-container">
               {homepageData.fields.social.map((link) => {
                 const name = link.split("/")[2].split(".")[0]
-                return <a className="icon-link" title={name} href={link} key={link}><Icon name={name}/></a>
+                return <a className="icon-link" target="blank" title={name} href={link} key={link}><Icon name={name}/></a>
               })}
               </div>
             </div>   
@@ -56,7 +56,11 @@ export default async function Home() {
           <div className={styles.cardContainer}>
             {showcaseData.items.map((projectEntry) => {
               return (
-                <ProjectCard title={projectEntry.fields.title} description={projectEntry.fields.shortDescription} media={projectEntry.fields.media} key={projectEntry.fields.slug} href={projectEntry.fields.slug} />
+                <ProjectCard title={projectEntry.fields.title} 
+                description={projectEntry.fields.shortDescription} 
+                media={projectEntry.fields.media} key={projectEntry.fields.slug} 
+                href={projectEntry.fields.slug} 
+                date={projectEntry.sys.createdAt}/>
               )
             })}
           </div>

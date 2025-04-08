@@ -31,7 +31,7 @@ export default async function Header() {
                         </nav>
                     </div>
                     <a className={styles.tel} href="tel:089 888 777">
-                        <Icon name="phone"/><span>089 888 777</span>
+                        <Icon size={16} name="phone"/><span>089 888 777</span>
                     </a>
                 </div>
             </div>

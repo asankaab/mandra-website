@@ -55,7 +55,7 @@ export default function MobileMenu({ menuItems }: { menuItems: Array<{ name: str
                     )}
                     <li className={styles.li}>
                         <a href="tel:089 888 777" className={styles.telMob}>
-                            <Icon name="phone"/><span>089 888 777</span>
+                            <Icon size={16} name="phone"/><span>089 888 777</span>
                         </a>
                     </li>
                 </ul>

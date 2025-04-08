@@ -1,11 +1,11 @@
 
   /* colors */
-  $color-black: #000;
-  $color-white: #fff;
-  $color-grey: #808080;
-  $color-grey-light: #E6E6E6;
-  $color-grey-dark: #333333;
-  $color-grey-shade: #F9F9F9;
+  $color-black: var(--color-black);
+  $color-white: var(--color-white);
+  $color-grey: var(--color-grey);
+  $color-grey-light: var(--color-grey-light);
+  $color-grey-dark: var(--color-grey-dark);
+  $color-grey-shade: var(--color-grey-shade);
 
   /* fonts */
 
@@ -83,4 +83,10 @@ $section-padding: $size-lg;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
+}
+
+// page
+
+.page-padding-block {
+  padding-block: $section-padding;
 }
