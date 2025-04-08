@@ -5,14 +5,16 @@ import styles from "./projectcard.module.scss"
 import Icon from "./ui/Icon";
 import Link from "next/link";
 
-export default async function ProjectCard({ title, description, href, media }: {title: string, description: string, href: string, media: Array<{ fields: { title: string, file: { url: string }}}>}) {
-
+export default async function ProjectCard({ title, description, href, media, date }: {title: string, description: string, href: string, media: Array<{ fields: { title: string, file: { url: string }}}>, date: string}) {
     return (
         <Link href={"showcase/" + href} className={styles.link}>
             <div className={styles.card}>
                 <div className={styles.textBox}>
-                    <Heading2 bold>{title}</Heading2>
-                    <Paragraph>{description}</Paragraph>
+                    <div>
+                        <Heading2 bold>{title}</Heading2>
+                        <Paragraph>{description}</Paragraph>
+                    </div>
+                    <div className={styles.date}><p>{date.split('T')[0]}</p></div>
                 </div>
                 <div className={styles.grid}>
                     {media.slice(0,3).map((imageEntry, index) => {
