@@ -1,5 +1,25 @@
 @use "../../main.scss";
 
 .page {
-    padding-block: main.$section-padding;
+
+    display: grid;
+    gap: main.$size-md;
+
+    @media (min-width: 1360px) {
+        grid-template-columns: repeat(12, 1fr);
+
+        .contentBox {
+            grid-column: 2/9;
+
+            .shortDescription {
+                color: main.$color-grey;
+                padding-block: main.$size-xs;
+                font-size: smaller;
+            }
+        }
+
+        .gallery {
+            grid-column: 2/12;
+        }
+    }
 }

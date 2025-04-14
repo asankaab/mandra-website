@@ -51,4 +51,14 @@ export default function Icon({ name, color, size }: { name: string; color?: stri
             </svg>
         )
     }
+    
+    if (name === "loading") {
+        return (
+            <svg width={xy} height={xy} viewBox="0 0 20 20" fill={fill} xmlns="http://www.w3.org/2000/svg">
+            <g data-idx="1"><circle stroke-dasharray="164.93361431346415 56.97787143782138" r="35" stroke-width="10" stroke="#808080" fill="none" cy="50" cx="50" data-idx="2" transform="matrix(0.7289557200325765,-0.6845608506420653,0.6845608506420653,0.7289557200325765,-20.675828533732087,47.780256530474446)">
+  
+  </circle><g data-idx="4"></g></g>
+            </svg>
+        )
+    }
 }

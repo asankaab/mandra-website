@@ -6,8 +6,10 @@ import styles from "./header.module.scss";
 import animation from "./mobilemenu.module.css";
 import { useEffect, useState } from "react";
 import Icon from "./ui/Icon";
+import ImageLoader from "./ui/ImageLoader";
 
-export default function MobileMenu({ menuItems }: { menuItems: Array<{ name: string; href: string }> }) {
+export default function MobileMenu({ menuItems, logoPath, phone }
+    : { menuItems: Array<{ name: string; href: string }>, logoPath: { file: {url: string}, title: string}, phone: string }) {
 
     const [state, setState] = useState("none");
 
@@ -23,7 +25,7 @@ export default function MobileMenu({ menuItems }: { menuItems: Array<{ name: str
 
         function setScrollAction() {
             const header = document.querySelector('header');
-            if (window.scrollY > 80) {
+            if (window.scrollY > 40) {
                 header?.setAttribute('data-scroll','true')
             } else if (window.scrollY < 4) {
                 header?.removeAttribute('data-scroll')
@@ -36,9 +38,9 @@ export default function MobileMenu({ menuItems }: { menuItems: Array<{ name: str
     },[])
 
     return (
-        <Collapsible.Root onOpenChange={(open) => onStateChange(open)} className={styles.collapsibleRoot}>
+        <Collapsible.Root open={state === 'open' ? true : false} onOpenChange={(open) => onStateChange(open)} className={styles.collapsibleRoot}>
             <div className={styles.menuBar}>
-                <Link href="/" ><Image src={"/logo.svg"} alt="Logo" width={38} height={38} /></Link>
+                <Link href="/" ><ImageLoader src={logoPath.file.url} unoptimize alt={logoPath.title} width={38} height={38} /></Link>
                 <Collapsible.Trigger className={styles.menuButton}>
                     <svg className={animation[state]} xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
                         <rect className={animation.bar1} y="11" width="30" height="2" rx=".3" ry=".3"/>
@@ -51,11 +53,11 @@ export default function MobileMenu({ menuItems }: { menuItems: Array<{ name: str
             <Collapsible.Content className={styles.menuContent}>
                 <ul className={styles.menuList}>
                     {menuItems.map((item, index) =>
-                        <li className={styles.li} key={index}><Link href={item.href} className={styles.menuItem}>{item.name}</Link></li>
+                        <li onClick={()=> setState('close')} className={styles.li} key={index}><Link href={item.href} className={styles.menuItem}>{item.name}</Link></li>
                     )}
                     <li className={styles.li}>
-                        <a href="tel:089 888 777" className={styles.telMob}>
-                            <Icon size={16} name="phone"/><span>089 888 777</span>
+                        <a href={"tel:" + phone} className={styles.telMob}>
+                            <Icon size={16} name="phone"/><span>{phone}</span>
                         </a>
                     </li>
                 </ul>

@@ -13,7 +13,7 @@ export default function ServiceBox() {
                 <Paragraph>Risus placerat ante nullam pretium velit placerat.</Paragraph>
             </div>
             <div className={styles.imageBox}>
-                <Image src={'/images/hero-4.jpg'} fill alt=""/>
+                <Image src={'/images/hero-4.jpg'} unoptimized fill alt=""/>
             </div>
         </div>
     )

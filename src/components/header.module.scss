@@ -28,7 +28,7 @@
     max-height: 100vh;
     z-index: 1000;
     padding-block: main.$size-xs;
-    transition: background-color .2s ease-in;
+    transition: background-color 100ms ease-in;
 
     @media (min-width: 1360px) {
         background: none;

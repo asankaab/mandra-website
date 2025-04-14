@@ -1,0 +1,8 @@
+.yarl__root {
+    --yarl__container_background_color: rgba(255, 255, 255, 0.97);
+    --yarl__color_button: black;
+    --yarl__button_background_color: rgba(255, 255, 255, 0.25);
+    --yarl__button_filter: none;
+    --yarl__color_button_active: grey;
+    --yarl__navigation_button_padding: .5rem .2rem;
+}

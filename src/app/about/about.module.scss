@@ -1,0 +1,23 @@
+@use '../main.scss';
+
+
+.page {
+
+    display: grid;
+    gap: main.$size-md;
+
+    .contactBox {
+        padding: main.$size-sm;
+        border-radius: main.$size-sm;
+        background-color: main.$color-grey-shade;
+        border: 1px solid main.$color-grey-light;
+    }
+
+    @media (min-width: 1360px) {
+        grid-template-columns: repeat(12, 1fr);
+
+        .contentBox, .contactBox {
+            grid-column: 2/9;
+        }
+    }
+}

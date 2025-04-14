@@ -1,6 +1,8 @@
+'use client'
 import { ReactNode } from 'react';
 import styles from './button.module.scss';
 import Link from 'next/link';
+import Icon from './Icon';
 
 interface ButtonProps {
     children: ReactNode;
@@ -8,9 +10,12 @@ interface ButtonProps {
     varient?: string;
     href?: string;
     type?: "button" | "submit" | "reset";
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    loading?: boolean;
+    disabled?: boolean;
 }
 
-export default function Button({ children, className, varient, href, ...props }
+export default function Button({ children, className, varient, href, onClick, loading, disabled, ...props }
     : ButtonProps ) {
 
         const style = styles[varient || 'default']
@@ -18,7 +23,7 @@ export default function Button({ children, className, varient, href, ...props }
         if (href) {
 
             return (
-                <Link href={href} className={`${style} ${className}`}
+                <Link style={ disabled ? { opacity: .5, cursor: 'wait'} : { opacity: 1}} href={href} className={`${style} ${className}`}
                         {...props}
                     >
                         {children}
@@ -28,7 +33,7 @@ export default function Button({ children, className, varient, href, ...props }
         }
 
         return (
-            <button className={`${style} ${className}`}
+            <button style={ disabled ? { opacity: .5, cursor: 'not-allowed'} : { opacity: 1}} onClick={onClick} disabled={disabled} className={`${style} ${className}`}
                 {...props}
             >
                 {children}

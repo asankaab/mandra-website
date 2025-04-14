@@ -1,11 +1,15 @@
-import Image from "next/image";
 import styles from "./header.module.scss"
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import Icon from "./ui/Icon";
+import { getContactPage, getHomepageData } from "@/app/actions";
+import ImageLoader from "./ui/ImageLoader";
 
 export default async function Header() {
 
+    const homepageData = await getHomepageData();
+    const contact = await getContactPage();
+    
     const menuItems = [
         { name: "Showcase", href: "/showcase" },
         { name: "About", href: "/about" },
@@ -17,11 +21,14 @@ export default async function Header() {
         <header className={styles.header}>
             <div className="wrapper">
                 <div className={styles.mobileNav}>
-                    <MobileMenu menuItems={menuItems}/>
+                    <MobileMenu phone={contact.fields.phone} logoPath={homepageData.fields.brandLogo.fields} menuItems={menuItems}/>
                 </div>
                 <div className={styles.navWrapper}>
                     <div className={styles.desktopNav}>
-                        <Link href="/" ><Image src={"/logo.svg"} alt="Logo" width={38} height={38} /></Link>
+                        <Link href="/" >
+                            <ImageLoader src={homepageData.fields.brandLogo.fields.file.url} unoptimize
+                            alt={homepageData.fields.brandLogo.fields.title} width={38} height={38} />
+                        </Link>
                         <nav>
                             <ul className={styles.desktopMenuList}>
                                 {menuItems.map((item, index) =>
@@ -30,8 +37,8 @@ export default async function Header() {
                             </ul>
                         </nav>
                     </div>
-                    <a className={styles.tel} href="tel:089 888 777">
-                        <Icon size={16} name="phone"/><span>089 888 777</span>
+                    <a className={styles.tel} href={"tel:" + contact.fields.phone}>
+                        <Icon size={16} name="phone"/><span>{contact.fields.phone}</span>
                     </a>
                 </div>
             </div>

@@ -2,6 +2,26 @@
 
 .link {
     display: block;
+    transition: all 200ms ease-in;
+    overflow: hidden;
+    border: 1px solid transparent;
+    
+    &:hover, &:focus-within { 
+        background-color: main.$color-grey-shade;
+        box-shadow: 0px 0px 10px main.$color-grey-light;
+        color: main.$color-black;
+        border: 1px solid main.$color-grey;
+        border-radius: main.$size-xs;
+
+        .image {
+            transform: scale(1.08);
+        }
+        
+        .arrow {
+            transform: scale(1.1);
+            background-color: main.$color-grey-shade;
+        }
+    }
 }
 
 .card {
@@ -12,6 +32,15 @@
     padding-inline: main.$size-sm;
     color: main.$color-grey-dark;
     cursor: pointer;
+
+    .textBox p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+        padding-bottom: 0;
+    }
 
     @media (min-width: 1360px) {
         display: grid;
@@ -75,22 +104,6 @@
             @media (min-width: 1360px) {
                 transform: scale(0);
             }
-        }
-    }
-
-    &:hover, &:focus-within { 
-        background-color: main.$color-grey-shade;
-        box-shadow: 0px 0px 10px main.$color-grey-light;
-        color: main.$color-black;
-        outline: 1px solid main.$color-grey;
-
-        .image {
-            transform: scale(1.1);
-        }
-        
-        .arrow {
-            transform: scale(1.1);
-            background-color: main.$color-grey-shade;
         }
     }
 

@@ -1,20 +1,7 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+module.exports = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.ctfassets.net',
-        port: '',
-        pathname: '/**',
-        search: '',
-      },
-    ],
-  },
-  sassOptions: {
-    implementation: 'sass-embedded',
-  },
-};
-
-export default nextConfig;
+        remotePatterns: [new URL('https://images.ctfassets.net/**')],
+        loader: 'custom',
+        loaderFile: './src/lib/imageloader.ts'
+  }
+}
