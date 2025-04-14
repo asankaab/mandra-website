@@ -2,7 +2,6 @@
 import { ReactNode } from 'react';
 import styles from './button.module.scss';
 import Link from 'next/link';
-import Icon from './Icon';
 
 interface ButtonProps {
     children: ReactNode;

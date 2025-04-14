@@ -21,8 +21,6 @@ export default async function About() {
     const aboutQuery = await client.getEntry<AboutEntrySkeleton>('7qz9lmSfvNnKDz5iq7s2tO')
         const about = await JSON.parse(JSON.stringify(aboutQuery))
         
-        console.log(about)
-
     return (
         <div className="wrapper">
             <div className={`page-padding-block ${styles.page}`}>

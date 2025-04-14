@@ -6,7 +6,7 @@ import "react-photo-album/masonry.css";
 import "react-photo-album/rows.css";
 import "yet-another-react-lightbox/styles.css";
 import "./lightbox.css"
-import { MasonryPhotoAlbum, RenderImageContext, RenderImageProps, RowsPhotoAlbum } from "react-photo-album";
+import { RenderImageContext, RenderImageProps, RowsPhotoAlbum } from "react-photo-album";
 import Lightbox, { SlideImage } from "yet-another-react-lightbox";
 import { isImageFitCover, isImageSlide, useLightboxProps, useLightboxState } from "yet-another-react-lightbox";
 

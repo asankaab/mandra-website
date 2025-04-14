@@ -10,9 +10,9 @@ export default function RichText({ document }: { document: Document }) {
 
     const richTextOptions = {
         renderNode: {
-          [BLOCKS.HEADING_1]: (node: any, children: React.ReactNode) => <Heading2>{children}</Heading2>,
-          [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => <Paragraph>{children}</Paragraph>,
-          [BLOCKS.EMBEDDED_ASSET]: (node: any, children: React.ReactNode) => 
+          [BLOCKS.HEADING_1]: (node: unknown, children: React.ReactNode) => <Heading2>{children}</Heading2>,
+          [BLOCKS.PARAGRAPH]: (node: unknown, children: React.ReactNode) => <Paragraph>{children}</Paragraph>,
+          [BLOCKS.EMBEDDED_ASSET]: (node: unknown, children: React.ReactNode) => 
               <ImageLoader fit="fill"
               src={node.data.target.fields.file.url}
               alt={node.data.target.fields.title} 
