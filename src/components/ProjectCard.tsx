@@ -23,8 +23,7 @@ export default function ProjectCard({ entry } : { entry: ProjectEntryType } ) {
                         return (
                             <div key={imageEntry.sys.id} className={index === 2 ? styles.bottom : styles.box}>
                                 <ImageLoader className={styles.image} src={imageEntry.fields.file.url} 
-                                fill alt={imageEntry.fields.title}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
+                                fill alt={imageEntry.fields.title}/>
                             </div>
                         )
                     })}
