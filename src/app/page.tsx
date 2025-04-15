@@ -4,15 +4,14 @@ import styles from "./page.module.scss";
 import Carousel from "@/components/Carousel";
 import Button from "@/components/ui/Button";
 import Paragraph from "@/components/ui/Paragraph";
-import Image from "next/image";
 import { client } from "@/lib/client";
-import { BlogEntryType, HomepageEntrySkeleton, ProjectEntryType } from "@/lib/types";
+import { BlogEntrySkeleton, HomepageEntrySkeleton, ProjectEntrySkeleton, ServicesEntrySkeleton, TeamEntrySkeleton } from "@/lib/types";
 import MiniTitle from "@/components/ui/MiniTitle";
 import ServiceBox from "@/components/ServiceBox";
 import BlogCard from "@/components/BlogCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import Icon from "@/components/ui/Icon";
-import { getBlogData, getShowcaseData } from "./actions";
+import { getBlogData, getServices, getShowcaseData, getTeam } from "./actions";
 import ProjectCard from "@/components/ProjectCard";
 import ImageLoader from "@/components/ui/ImageLoader";
 
@@ -21,6 +20,8 @@ export default async function Home() {
   const homepageData = await client.getEntry<HomepageEntrySkeleton>('4enTabsbalVOcWNbC0sfYw')
   const showcaseData = await getShowcaseData(2, 0)
   const blogData = await getBlogData(4, 0);
+  const services = await getServices();
+  const team = await getTeam(4);
 
   return (
   <>
@@ -56,23 +57,25 @@ export default async function Home() {
         <MiniTitle>Showcase</MiniTitle>
         <Heading1>Beautifully Capturing Human Memories.</Heading1>
         <div className={styles.cardContainer}>
-          <div className={styles.cardContainer}>
-            {showcaseData.items.map((projectEntry: ProjectEntryType) => {
+            {showcaseData.items.map((projectEntry: ProjectEntrySkeleton) => {
               return (
                 <ProjectCard entry={projectEntry} key={projectEntry.sys.id} />
               )
-            })}          
-          </div>
-          <div className={styles.buttonWrapper}><Button href="showcase" varient="outline">See More Projects</Button></div>
-        </div>
+            })}
+        </div>          
+        <div className={styles.buttonWrapper}><Button href="showcase" varient="outline">See More Projects</Button></div>
       </div>
     </section>
     <section className={styles.section}>
       <div className="wrapper">
         <MiniTitle>Our Style</MiniTitle>
         <Heading1>Elegant, Timeless, and artistic Photography Style</Heading1>
-        <div className={styles.serviceContainer}>
-            <ServiceBox/>
+        <div className={styles.serviceContainer} >
+          {services.items.map((item: ServicesEntrySkeleton, key: number) => {
+            return (
+              <ServiceBox key={item.sys.id} entry={item} number={key} />
+            )
+          })}
         </div>
       </div>
     </section>
@@ -81,16 +84,25 @@ export default async function Home() {
         <MiniTitle>Our Team</MiniTitle>
         <Heading1>Your Story, Our Vision, Perfectly Captured.</Heading1>
         <div className={styles.teamContainer}>
-            <div className={styles.imageBox}>
-                <Image unoptimized src={'/images/hero-4.jpg'} fill alt=""/>
-            </div>
-            <div className={styles.col2}>
-                <Heading2 bold>Marshall Greenholt</Heading2>
-                <Paragraph>Marshall Greenholt is a visionary photographer known for his remarkable ability to capture the extraordinary in everyday moments. Through his lens, he weaves stories that blend artistic expression with a keen eye for detail.
-Specializing in Marshalls work stands out for its, making his portfolio both diverse and captivating.</Paragraph>
-            </div>
+          {team.items.map( async(member: TeamEntrySkeleton, index: number) => {
+
+            const data = await JSON.parse(JSON.stringify(member))
+            const isEven = index % 2 === 0 ? true : false;
+
+            return (
+              <div key={index} className={isEven ? styles.memberBox : styles.memberBoxRight}>
+                <div className={styles.imageBox}>
+                    <ImageLoader focus="face" fit="thumb" src={data.fields.avatar?.fields.file.url} sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw" fill alt={data.fields.name}/>
+                </div>
+                <div className={styles.textBox}>
+                    <Heading2 bold>{data.fields.name}</Heading2>
+                    <Paragraph>{data.fields.bio}</Paragraph>
+                </div>
+              </div>
+            )
+          })}
         </div>
-            <Button varient="outline">Read More About Us</Button>
+            <Button varient="outline" href="about">Read More About Us</Button>
       </div>
     </section>
     <section className={styles.section}>
@@ -98,7 +110,7 @@ Specializing in Marshalls work stands out for its, making his portfolio both div
         <MiniTitle>Blog</MiniTitle>
         <Heading1>Get Updated With Latest Content.</Heading1>
         <div className={styles.blogContainer}>
-            {blogData.items.map((article: BlogEntryType)=> {
+            {blogData.items.map((article: BlogEntrySkeleton)=> {
               return (
                 <BlogCard entry={article} key={article.sys.id}/>
               )

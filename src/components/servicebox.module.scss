@@ -3,23 +3,52 @@
 .servicebox {
     text-align: start;
     display: grid;
+    gap: main.$size-xs;
     grid-template-columns: 1fr 8fr 3fr;
     justify-items: stretch;
     align-items: center;
     gap: main.$size-sm;
     border-bottom: 1px solid main.$color-grey;
 
+    &:last-child {
+        border-bottom: none;
+    }
+
     .number {
         font-style: italic;
         color: main.$color-grey;
     }
 
-    p {
-        color: main.$color-grey;
+    &:hover .imageBox, &:focus-visible .imageBox {
+        transform: scale(1.5);
+        z-index: 3;
     }
 
-    .col2 {
+    .textBox {
         grid-column: 2/3;
+        padding-block: main.$size-xs;
+        z-index: 4;
+        padding-block: main.$size-sm;
+
+        @media (min-width: 768px) {
+            padding-block: calc(main.$size-md + .6rem);            
+        }
+
+        h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            padding-bottom: main.$size-xs;
+        }
+
+        p {
+            color: main.$color-grey;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            overflow: hidden;
+            padding-bottom: 0;
+        }
     }
 
     .imageBox {
@@ -27,17 +56,17 @@
         align-self: stretch;
         grid-column: 3/4;
         position: relative;
-        min-width: 6rem;
-        min-height: 5rem;
+        height: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        display: inline;
+        transform-origin: right;
+        transition: all 300ms ease-in;
 
         img {
             object-fit: cover;
             object-position: center;
-        }
 
-        @media (min-width: 1360px) {           
-            min-width: 12rem;
-            min-height: 8rem;
         }
     }
 }

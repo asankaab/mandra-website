@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-turbo": "next dev --turbopack",
     "dev-net": "next dev -H 192.168.8.100",
     "build": "next build",
     "start": "next start",

@@ -22,28 +22,7 @@ export type ProjectEntrySkeleton = {
     content: contentful.EntryFieldTypes.RichText
     media: Array<contentful.EntryFieldTypes.AssetLink>
   },
-  sys: { id: string, createdAt: contentful.EntryFieldTypes.Date }
-}
-
-export interface ProjectEntryType {
-  fields: {
-    title: string;
-    slug: string;
-    shortDescription: string;
-    media: Array<{
-      contentTypeId: "media"
-      fields: {
-        file: { url: string },
-        title: string
-      },
-      sys: { id: string, createdAt: contentful.EntryFieldTypes.Date }
-    }>;
-  };
-  sys: {
-    createdAt: string;
-    id: string
-  };
-  contentTypeId?: string; 
+  sys: contentful.EntitySys
 }
 
 export type BlogEntrySkeleton = {
@@ -55,7 +34,7 @@ export type BlogEntrySkeleton = {
     coverPhoto: contentful.EntryFieldTypes.AssetLink
     author: contentful.EntryFieldTypes.EntryLink<AuthorEntrySkeleton>
   },
-  sys: { id: string, createdAt: contentful.EntryFieldTypes.Date }
+  sys: contentful.EntitySys
 }
 
 export type AuthorEntrySkeleton = {
@@ -65,28 +44,7 @@ export type AuthorEntrySkeleton = {
     bio: contentful.EntryFieldTypes.Text
     avatar: contentful.EntryFieldTypes.AssetLink
   },
-  sys: { id: string, createdAt: contentful.EntryFieldTypes.Date }
-}
-
-export interface BlogEntryType {
-  fields: {
-    title: string;
-    slug: string;
-    content: { content: [{content: [{value: string}]}]};
-    coverPhoto: {
-      contentTypeId: "media"
-      fields: {
-        file: { url: string },
-        title: string
-      },
-      sys: { id: string, createdAt: contentful.EntryFieldTypes.Date }
-    };
-  };
-  sys: {
-    createdAt: string;
-    id: string
-  };
-  contentTypeId?: string; 
+  sys: contentful.EntitySys
 }
 
 export type ContactEntrySkeleton = {
@@ -96,7 +54,29 @@ export type ContactEntrySkeleton = {
     content: contentful.EntryFieldTypes.RichText
     phone: contentful.EntryFieldTypes.Text
   },
-  sys: { id: string, createdAt: contentful.EntryFieldTypes.Date },
+  sys: contentful.EntitySys,
   query: {content_type: string, select: Array<string>}
 
+}
+
+export interface ServicesEntrySkeleton {
+  contentTypeId: "style"
+  fields: {
+    title: contentful.EntryFieldTypes.Text
+    description: contentful.EntryFieldTypes.Text
+  },
+  sys: contentful.EntitySys
+  query: {content_type: string, select: Array<string>}
+}
+
+export interface TeamEntrySkeleton {
+  contentTypeId: "teamMember"
+  fields: {
+    name: contentful.EntryFieldTypes.Text
+    bio: contentful.EntryFieldTypes.Text
+    avatar: contentful.EntryFieldTypes.AssetLink
+    role: Array<contentful.EntryFieldTypes.Text>
+  },
+  sys: contentful.EntitySys
+  query: {content_type: string, select: Array<string>}
 }

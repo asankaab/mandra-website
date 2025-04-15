@@ -5,14 +5,14 @@ import ProjectCard from "@/components/ProjectCard";
 import Button from "@/components/ui/Button";
 import { useState, useTransition } from "react";
 import { getShowcaseData } from "@/app/actions";
-import { ProjectEntryType } from "@/lib/types";
+import { ProjectEntrySkeleton } from "@/lib/types";
 
-export default function ProjectList({initialEntries}: { initialEntries: { items: ProjectEntryType[], total: number, skip: number }}) {
+export default function ProjectList({initialEntries}: { initialEntries: { items: ProjectEntrySkeleton[], total: number, skip: number }}) {
     
     const initialLength = initialEntries.items.length;
     const total = initialEntries.total;
 
-    const [showcaseData, setShocaseData] = useState<ProjectEntryType[]>(initialEntries.items);
+    const [showcaseData, setShocaseData] = useState<ProjectEntrySkeleton[]>(initialEntries.items);
     const [isPending, startTransition] = useTransition();
     const [skip, setSkip] = useState(initialLength);
 
@@ -20,7 +20,7 @@ export default function ProjectList({initialEntries}: { initialEntries: { items:
         if (total !== showcaseData.length) {
             startTransition(async () => {
                 const data = await getShowcaseData(initialLength, skip);
-                data.items.forEach((item: ProjectEntryType) => {
+                data.items.forEach((item: ProjectEntrySkeleton) => {
                     setShocaseData((prev) => [...prev, item]);
                 })
                 setSkip(skip + initialLength);
@@ -32,7 +32,7 @@ export default function ProjectList({initialEntries}: { initialEntries: { items:
         <>
             <div className={styles.cardContainer}>
                 <div className={styles.flex}>
-                    {showcaseData.map((projectEntry: ProjectEntryType) => {
+                    {showcaseData.map((projectEntry: ProjectEntrySkeleton) => {
                         return (
                             <ProjectCard entry={projectEntry} key={projectEntry.sys.id} />
                         )
@@ -47,7 +47,7 @@ export default function ProjectList({initialEntries}: { initialEntries: { items:
                         </svg> : ''}
                 </div>
                 <div className={styles.stats}>{showcaseData.length === total ? `${showcaseData.length} of ${total}` : ''}</div>
-                <div className={styles.buttonWrapper}><Button disabled={isPending} onClick={loadMore} varient="outline">See More Projects</Button></div>
+                <div className={styles.buttonWrapper}><Button disabled={isPending} onClick={loadMore} varient="outline">Load More</Button></div>
             </div>
         </>
     )

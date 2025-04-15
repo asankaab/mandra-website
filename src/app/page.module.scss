@@ -4,6 +4,7 @@
     text-align: center;
     @media (min-width: 1360px) {
         text-align: left;
+        padding-right: main.$size-sm;
     }
 }
 
@@ -97,9 +98,17 @@
 
 .cardContainer {
     @include main.container;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr; 
     gap: main.$size-sm;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);        
+    }
+
+    @media (min-width: 1360px) {
+        grid-template-columns: 1fr;        
+    }
     
     .buttonWrapper {
         text-align: center;
@@ -108,24 +117,62 @@
 
 .serviceContainer {
     @include main.container;
+    display: grid;
 }
 
 .teamContainer {
     @include main.container;
     display: grid;
-    grid-template-columns: 1fr 6fr;
     gap: main.$size-sm;
     text-align: left;
 
-    .imageBox {
-        position: relative;
-        min-width: 4rem;
-        min-height: 4rem;
-        aspect-ratio: 1;
+    .memberBox {
+        border-bottom: 1px solid main.$color-grey-light;
+        display: grid;
+        gap: main.$size-lg;
+        align-items: center;
+        grid-template-columns: 1fr 6fr;
+        
+        .imageBox {
+            position: relative;
+            min-width: 4rem;
+            min-height: 4rem;
+            aspect-ratio: 1;
 
-        img {
-            object-fit: cover;
-            object-position: center;
+            img {
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .memberBoxRight {
+        border-bottom: 1px solid main.$color-grey-light;
+        display: grid;
+        gap: main.$size-lg;
+        align-items: center;
+        grid-template-columns: 1fr 6fr;
+
+        .imageBox {
+            position: relative;
+            min-width: 4rem;
+            min-height: 4rem;
+            aspect-ratio: 1;
+        }
+
+        @media (min-width: 1360px) {
+            grid-template-columns: 6fr 1fr;
+            
+            .imageBox {
+                aspect-ratio: 1;
+                grid-column: 2/3;
+                grid-row: 1
+            }
+
+            .textBox {
+                grid-column: 1/2;
+                grid-row: 1;
+            }
         }
     }
 }
@@ -157,6 +204,7 @@
         place-content: center;
         position: absolute;
         justify-content: flex-end;
+        z-index: -2;
 
         svg {
             object-fit: contain;

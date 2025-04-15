@@ -13,10 +13,10 @@
   $font-bricolage: var(--font-bricolage-grotesque);
   
   $heading1: clamp(1.8rem, 4.4vw - 2rem, 3.8em);
-  $heading2: clamp(1.4rem, 3.4vw - 2rem, 2.8rem);
+  $heading2: clamp(1.2rem, 3.4vw - 2rem, 2.8rem);
   $nav-link: clamp(.8rem, 1.4vw - 2rem, 1.8rem);
   $mini-title: clamp(.8rem, 2vw - 2rem, 2rem);
-  $body: clamp(1rem, 2vw - 2rem, 2rem);
+  $body: clamp(0.9rem, 2vw - 2rem, 2rem);
 
   /* spacing */
 
@@ -70,7 +70,7 @@ $section-padding: $size-lg;
 
 @mixin container {
   position: relative;
-  padding-block: $size-md;
+  padding-block: $size-lg;
 }
 
 // footer

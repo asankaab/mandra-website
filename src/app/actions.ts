@@ -1,7 +1,7 @@
 'use server';
 
 import { client } from "@/lib/client";
-import { BlogEntrySkeleton, ContactEntrySkeleton, HomepageEntrySkeleton, ProjectEntrySkeleton } from "@/lib/types";
+import { BlogEntrySkeleton, ContactEntrySkeleton, HomepageEntrySkeleton, ProjectEntrySkeleton, ServicesEntrySkeleton, TeamEntrySkeleton } from "@/lib/types";
 
 export async function getHomepageData() {
     const homepageData = await client.getEntry<HomepageEntrySkeleton>('4enTabsbalVOcWNbC0sfYw')
@@ -37,6 +37,26 @@ export async function getContactPage() {
   const contactData = await client.getEntry<ContactEntrySkeleton>('76WVnRHmn7FesVhI3o5aG6');
 
   const parsedData = await JSON.parse(JSON.stringify(contactData))
+
+  return parsedData;
+}
+
+export async function getServices() {
+  const servicesData = await client.getEntries<ServicesEntrySkeleton>({
+    content_type: 'style',
+  })
+
+  const parsedData = await JSON.parse(JSON.stringify(servicesData))
+
+  return parsedData;
+}
+
+export async function getTeam(limit: number) {
+  const teamData = await client.getEntries<TeamEntrySkeleton>({
+    content_type: 'teamMember', limit: limit
+  })
+
+  const parsedData = await JSON.parse(JSON.stringify(teamData))
 
   return parsedData;
 }
