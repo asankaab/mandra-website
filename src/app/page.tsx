@@ -11,13 +11,13 @@ import ServiceBox from "@/components/ServiceBox";
 import BlogCard from "@/components/BlogCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import Icon from "@/components/ui/Icon";
-import { getBlogData, getServices, getShowcaseData, getTeam } from "./actions";
+import { getBlogData, getHomepageData, getServices, getShowcaseData, getTeam } from "./actions";
 import ProjectCard from "@/components/ProjectCard";
 import ImageLoader from "@/components/ui/ImageLoader";
 
 export default async function Home() {
 
-  const homepageData = await client.getEntry<HomepageEntrySkeleton>('4enTabsbalVOcWNbC0sfYw')
+  const homepageData = await getHomepageData();
   const showcaseData = await getShowcaseData(2, 0)
   const blogData = await getBlogData(4, 0);
   const services = await getServices();
@@ -40,7 +40,7 @@ export default async function Home() {
           <div className={styles.socialContainer}>
             <p className={styles.socialText}>Connect with us</p>
             <div className="icon-container">
-              {homepageData.fields.social.map((link) => {
+              {homepageData.fields.social.map((link: string) => {
                 const name = link.split("/")[2].split(".")[0]
                 return <a className="icon-link" target="blank" title={name} href={link} key={link}><Icon name={name}/></a>
               })}
@@ -48,7 +48,7 @@ export default async function Home() {
             </div>   
           </div>
         <div className={styles.colRight}>
-          <Carousel imagesArray={homepageData.fields.heroImages}/>
+          <Carousel imagesArray={homepageData.fields.heroImages} logo={homepageData.fields.brandLogo}/>
         </div>
       </div>
     </main>
@@ -96,6 +96,13 @@ export default async function Home() {
                 </div>
                 <div className={styles.textBox}>
                     <Heading2 bold>{data.fields.name}</Heading2>
+                    <span className={styles.role}>
+                      {member.fields.role.map((item, index) => {
+                        return (
+                            <span key={index}>{ index > 0 ? ' | ' + item : item.toString()}</span>
+                        )
+                      })}
+                    </span>
                     <Paragraph>{data.fields.bio}</Paragraph>
                 </div>
               </div>

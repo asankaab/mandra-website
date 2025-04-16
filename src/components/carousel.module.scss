@@ -21,6 +21,11 @@
     justify-content: center;
     align-items: center;
 
+    img {
+        opacity: .1;
+        width: 50%;;
+    }
+
     @media (min-width: 1360px) {
         &:after {
             content: '';

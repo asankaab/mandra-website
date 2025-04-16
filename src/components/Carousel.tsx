@@ -7,11 +7,13 @@ import "swiper/css/navigation";
 import "swiper/css";
 import React from "react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import Image from "next/image";
 import styles from "./carousel.module.scss";
 import ImageLoader from "./ui/ImageLoader";
 
-export default function Carousel({ imagesArray }: { imagesArray: { fields: { title: string; file: { url: string } } }[] }) {
+export default function Carousel({ imagesArray, logo }: { imagesArray: { fields: { title: string; file: { url: string } } }[], logo?: string }) {
+    
+    const logoData = JSON.parse(JSON.stringify(logo))
+
     return (
         <Swiper className={styles.swiper}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -32,7 +34,7 @@ export default function Carousel({ imagesArray }: { imagesArray: { fields: { tit
             </SwiperSlide>
         ))}
         <div className={styles.overlay}>
-            {/* <Image src="/images/logo_faded.png" alt="Logo" width={400} height={400} unoptimized /> */}
+            <ImageLoader src={logoData.fields.file.url} width={400} height={400} alt={logoData.fields.title} unoptimize sizes="(min-width: 1360px) 50vw, 100vw"/>
         </div>
         </Swiper>
     )

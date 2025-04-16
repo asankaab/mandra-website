@@ -4,13 +4,13 @@
     font-family: main.$font-baskervville;
     font-size: main.$heading1;
     font-weight: 300;
-    padding-bottom: main.$size-sm;
+    margin-bottom: main.$size-sm;
 }
 
 .heading2 {
     font-family: main.$font-bricolage;
     font-size: main.$heading2;
-    padding-bottom: main.$size-sm;
+    margin-bottom: main.$size-sm;
 }
 
 .miniTitle {
@@ -18,13 +18,13 @@
     font-size: main.$mini-title;
     text-transform: uppercase;
     letter-spacing: 0.4rem;
-    padding-bottom: main.$size-sm;
+    margin-bottom: main.$size-sm;
 }
   
 .paragraph {
     font-family: main.$font-bricolage;
     font-size: main.$body;
-    padding-bottom: main.$size-sm;;
+    margin-bottom: main.$size-sm;;
 }
   
 .bold {
