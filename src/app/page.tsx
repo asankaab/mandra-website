@@ -4,8 +4,7 @@ import styles from "./page.module.scss";
 import Carousel from "@/components/Carousel";
 import Button from "@/components/ui/Button";
 import Paragraph from "@/components/ui/Paragraph";
-import { client } from "@/lib/client";
-import { BlogEntrySkeleton, HomepageEntrySkeleton, ProjectEntrySkeleton, ServicesEntrySkeleton, TeamEntrySkeleton } from "@/lib/types";
+import { BlogEntrySkeleton, ProjectEntrySkeleton, ServicesEntrySkeleton, TeamEntrySkeleton } from "@/lib/types";
 import MiniTitle from "@/components/ui/MiniTitle";
 import ServiceBox from "@/components/ServiceBox";
 import BlogCard from "@/components/BlogCard";
@@ -14,6 +13,7 @@ import Icon from "@/components/ui/Icon";
 import { getBlogData, getHomepageData, getServices, getShowcaseData, getTeam } from "./actions";
 import ProjectCard from "@/components/ProjectCard";
 import ImageLoader from "@/components/ui/ImageLoader";
+import Footer from "@/components/Footer";
 
 export default async function Home() {
 
@@ -142,6 +142,7 @@ export default async function Home() {
         </div>
       </div>
     </section>
+    <Footer/>
   </>
   );
 }

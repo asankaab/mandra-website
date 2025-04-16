@@ -1,0 +1,35 @@
+@use '../app/main.scss';
+
+.banner {
+    position: relative;
+    z-index: 8;
+
+    .container {
+        @include main.container;
+        margin: '0 auto';
+
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: main.$color-grey-shade;
+            border: 1px solid main.$color-grey-light;
+            padding-block: main.$size-sm;
+            padding-inline: main.$size-sm;
+            flex-direction: column;
+            gap: main.$size-sm;
+            text-align: center;
+
+            h3 {
+                padding: 0;
+            }
+        }
+
+        @media (min-width: 1360px) {
+            .banner {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+    }
+}

@@ -80,3 +80,14 @@ export interface TeamEntrySkeleton {
   sys: contentful.EntitySys
   query: {content_type: string, select: Array<string>}
 }
+
+export type DynamicPageEntrySkeleton = {
+  contentTypeId: "dynamicPage"
+  fields: {
+    title: contentful.EntryFieldTypes.Text
+    slug: contentful.EntryFieldTypes.Text
+    content: contentful.EntryFieldTypes.RichText
+    coverPhoto: contentful.EntryFieldTypes.AssetLink
+  },
+  sys: contentful.EntitySys
+}

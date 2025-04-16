@@ -3,7 +3,6 @@ import { Baskervville, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import "./main.scss";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const BaskervvilleSerif = Baskervville({
   variable: "--font-Baskervville",
@@ -27,7 +26,6 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       <body className={`${BaskervvilleSerif.variable} ${BricolageGrotesqueSans.className}`}>
         <Header/>
         {children}
-        <Footer/>
       </body>
     </html>
   );

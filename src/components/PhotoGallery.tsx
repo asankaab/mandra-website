@@ -9,6 +9,7 @@ import "./lightbox.css"
 import { RenderImageContext, RenderImageProps, RowsPhotoAlbum } from "react-photo-album";
 import Lightbox, { SlideImage } from "yet-another-react-lightbox";
 import { isImageFitCover, isImageSlide, useLightboxProps, useLightboxState } from "yet-another-react-lightbox";
+import loaderFunction from "@/lib/imageloader";
 
 function isNextJsImage(slide: SlideImage) {
   return (
@@ -41,7 +42,7 @@ function LightBoxNextJsImage({ slide, offset, rect }: { slide: SlideImage, offse
 
   return (
     <div style={{ position: "relative", width, height }}>
-      <Image
+      <Image loader={loaderFunction}
         fill
         alt=""
         src={slide as unknown as string}
@@ -71,7 +72,7 @@ function GalleryNextJsImage({ alt = "", title, sizes }: RenderImageProps, { phot
         aspectRatio: `${width} / ${height}`,
       }}
     >
-      <Image
+      <Image loader={loaderFunction}
         fill
         src={photo.src}
         alt={alt}

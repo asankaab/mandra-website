@@ -3,32 +3,73 @@
 .footer {
     position: relative;
     z-index: 8;
+    background-color: main.$color-grey-shade;
+    padding-block: main.$size-md;
 
     .container {
         @include main.container;
-        margin: '0 auto';
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: main.$size-md;
 
-        .banner {
-            display: flex;
-            align-items: center;
+        @media (min-width: 768px) {
+            flex-direction: row;  
             justify-content: space-between;
-            background-color: main.$color-grey-shade;
-            padding-block: main.$size-sm;
-            padding-inline: main.$size-sm;
-            flex-direction: column;
-            gap: main.$size-sm;
-            text-align: center;
+        }
 
-            h3 {
-                padding: 0;
+        a, p {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: main.$size-xs;
+            font-size: main.$nav-link;
+            word-break: break-all;
+            color: main.$color-grey-dark;
+        }
+        .link {
+            word-wrap: break-word;
+            word-break: break-all;
+
+            &:hover {
+                color: main.$color-grey;
+                text-decoration: underline;
+            }
+        }
+            
+        .navBox, .box1, .box2, .contactBox {
+            display: flex;
+            flex-direction: column;
+            gap: main.$size-md;
+            padding-block-start: main.$size-md;
+
+            
+        }
+
+        .contactBox {
+            .socialContainer {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                align-content: flex-start;
+                gap: main.$size-md;
+                position: relative;
+                border-top: 1px solid main.$color-grey;
+                padding-block-start: main.$size-md;
+
+                .iconLink {
+                    transition: all 300ms ease-in;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
             }
         }
 
+
         @media (min-width: 1360px) {
-            .banner {
-                flex-direction: row;
-                text-align: left;
-            }
+            
         }
     }
 }

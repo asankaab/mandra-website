@@ -1,0 +1,96 @@
+@use "../main.scss";
+
+.coverContainer {
+    position: relative;
+    z-index: -1;
+    opacity: .8;
+
+    .cover {
+        position: relative;
+        height: 20vh;
+        border-radius: main.$size-sm;
+        overflow: hidden;
+        margin-top: main.$size-xs;
+
+        img {
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+}
+
+.page {
+    z-index: 2;
+    gap: main.$size-lg;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .contentBox {
+        background-color: main.$color-white;
+        border-radius: main.$size-sm;
+    }
+
+    .sideBar {
+        display: flex;
+        flex-direction: column;
+        gap: main.$size-sm;
+        
+        .author {
+        background-color: main.$color-white;
+        border: 1px solid main.$color-grey-light;
+        border-radius: main.$size-xs;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        padding: main.$size-sm;
+        height: fit-content;
+        color: main.$color-grey-dark;
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+                margin-bottom: main.$size-sm;
+            }
+
+            .title * {
+                padding-bottom: 0;
+                text-align: center;
+                line-height: 0.8rem;
+                margin-bottom: main.$size-sm;
+                text-transform: capitalize;
+            }
+
+            .bio {
+                padding: 0 main.$size-sm main.$size-sm main.$size-sm;
+                text-align: center;
+                color: main.$color-grey;
+                font-size: main.$nav-link;
+            }
+        }
+
+        .relatedArticles {
+            text-align: center;
+            background-color: main.$color-white;
+            // border: 1px solid main.$color-grey-light;
+            border-radius: main.$size-sm;
+            padding-block-start: main.$size-xs;
+            padding-block-end: calc(main.$size-xs*2);
+            display: flex;
+            flex-direction: column;
+            gap: main.$size-sm;
+        }
+    }
+
+    @media (min-width: 1360px) {
+        grid-template-columns: repeat(12, 1fr);
+
+        .contentBox {
+            grid-column: 2/9;
+        }
+
+        .sideBar {
+            grid-column: 9/12;
+            margin-top: -8vh;
+        }
+    }
+}
