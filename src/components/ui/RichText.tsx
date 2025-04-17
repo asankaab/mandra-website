@@ -10,7 +10,7 @@ export default function RichText({ document }: { document: Document }) {
         renderNode: {
           [BLOCKS.HEADING_1]: (node: Node, children: React.ReactNode) => <Heading2>{children}</Heading2>,
           [BLOCKS.PARAGRAPH]: (node: Node, children: React.ReactNode) => <Paragraph>{children}</Paragraph>,
-          [BLOCKS.EMBEDDED_ASSET]: (node: Node, children: React.ReactNode) => 
+          [BLOCKS.EMBEDDED_ASSET]: (node: Node,) => 
               <ImageLoader fit="fill"
               src={node.data.target.fields.file.url}
               alt={node.data.target.fields.title} 

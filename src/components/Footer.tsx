@@ -60,7 +60,7 @@ export default async function Footer() {
                             <div className="icon-container">
                             {homepageData.fields.social.map((link: string) => {
                                 const name = link.split("/")[2].split(".")[0]
-                                return <a className={styles.iconLink} target="blank" title={name} href={link} key={link}><Icon name={name}/></a>
+                                return <a className='icon-link' target="blank" title={name} href={link} key={link}><Icon name={name}/></a>
                             })}
                             </div>
                         </div>   

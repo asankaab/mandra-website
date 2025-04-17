@@ -34,7 +34,7 @@ export default function Carousel({ imagesArray, logo }: { imagesArray: { fields:
             </SwiperSlide>
         ))}
         <div className={styles.overlay}>
-            <ImageLoader src={logoData.fields.file.url} width={400} height={400} alt={logoData.fields.title} unoptimize sizes="(min-width: 1360px) 50vw, 100vw"/>
+            <ImageLoader src={logoData.fields.file.url} width={400} height={400} alt={logoData.fields.title} unoptimize sizes="(min-width: 1360px) 50vw, 30vw"/>
         </div>
         </Swiper>
     )

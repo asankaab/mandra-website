@@ -11,7 +11,6 @@
 .main {
     position: relative;
     margin-top: calc(0px - (main.$size-sm *2 + main.$size-sm *2 + main.$nav-link - 0.8rem));
-    margin-bottom: calc(main.$section-padding*2);
 
     @media (min-width: 1360px) {
         margin-top: calc(0px - (main.$size-sm *2 + main.$size-sm *2 + main.$nav-link + 1rem));

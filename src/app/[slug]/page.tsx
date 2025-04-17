@@ -22,8 +22,8 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
             <div className="wrapper">
                 <div className={`page-padding-block ${styles.page}`}>
                     <div className={styles.contentBox}>
-                        <Heading1>{page.fields.title}</Heading1>
-                        <RichText document={page.fields.content} />
+                        <Heading1>{page.fields?.title}</Heading1>
+                        <RichText document={page.fields?.content} />
                     </div>
                 </div>
             </div>

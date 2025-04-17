@@ -14,7 +14,7 @@ interface ButtonProps {
     disabled?: boolean;
 }
 
-export default function Button({ children, className, varient, href, onClick, loading, disabled, ...props }
+export default function Button({ children, className, varient, href, onClick, disabled, ...props }
     : ButtonProps ) {
 
         const style = styles[varient || 'default']
