@@ -3,6 +3,8 @@ import { Baskervville, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import "./main.scss";
 import Header from "@/components/Header";
+import Cursor from "@/components/Cursor";
+import Icon from "@/components/ui/Icon";
 
 const BaskervvilleSerif = Baskervville({
   variable: "--font-Baskervville",
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en">
+    <html lang="en" className=".scroll-container">
       <body className={`${BaskervvilleSerif.variable} ${BricolageGrotesqueSans.className}`}>
         <Header/>
         {children}

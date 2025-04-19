@@ -13,7 +13,6 @@
             align-items: center;
             justify-content: space-between;
             background-color: main.$color-grey-shade;
-            border: 1px solid main.$color-grey-light;
             padding-block: main.$size-sm;
             padding-inline: main.$size-sm;
             flex-direction: column;
@@ -25,7 +24,7 @@
             }
         }
 
-        @media (min-width: 1360px) {
+        @media (min-width: 768px) {
             .banner {
                 flex-direction: row;
                 text-align: left;

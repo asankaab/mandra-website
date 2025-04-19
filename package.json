@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev-turbo": "next dev --turbopack",
-    "dev-net": "next dev -H 192.168.8.100",
+    "dev-net": "next dev -H 192.168.8.101",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,6 +13,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.0.1",
     "@contentful/rich-text-types": "^17.0.0",
+    "animejs": "^4.0.1",
     "contentful": "^11.5.13",
     "next": "^15.3.0",
     "radix-ui": "^1.1.3",
