@@ -10,12 +10,12 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import styles from "./carousel.module.scss";
 import ImageLoader from "./ui/ImageLoader";
 
-export default function Carousel({ imagesArray, logo }: { imagesArray: { fields: { title: string; file: { url: string } } }[], logo?: string }) {
+export default function Carousel({ imagesArray, logo, className }: { imagesArray: { fields: { title: string; file: { url: string } } }[], logo?: string, className?: string }) {
     
     const logoData = JSON.parse(JSON.stringify(logo))
 
     return (
-        <Swiper className={styles.swiper}
+        <Swiper className={styles.swiper + ' ' + className}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         effect="fade"
         modules={[Autoplay, EffectFade]}

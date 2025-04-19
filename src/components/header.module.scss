@@ -10,6 +10,13 @@
 
 .desktopNav {
     display: none;
+    // background-color: main.$color-white;
+    // border-radius: 2px;
+    // padding-right: 2rem;
+    
+    .logo {
+        width: auto;
+    }
 
     @media (min-width: 1360px) {
         display: flex;
@@ -53,6 +60,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .logo {
+        width: auto;
+    }
 }
 
 .menuButton {

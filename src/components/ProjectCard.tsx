@@ -6,12 +6,12 @@ import Link from "next/link";
 import ImageLoader from "./ui/ImageLoader";
 import { ProjectEntrySkeleton } from "@/lib/types";
 
-export default function ProjectCard({ entry } : { entry: ProjectEntrySkeleton } ) {
+export default function ProjectCard({ entry, className } : { entry: ProjectEntrySkeleton, className?: string } ) {
 
     const data = JSON.parse(JSON.stringify(entry));
 
     return (
-        <Link href={"showcase/" + data.fields.slug} className={styles.link}>
+        <Link href={"showcase/" + data.fields.slug} className={styles.link + " " + className}>
             <div className={styles.card}>
                 <div className={styles.textBox}>
                     <div>

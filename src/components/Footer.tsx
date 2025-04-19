@@ -27,6 +27,8 @@ export default async function Footer() {
     ];    
 
     return (
+        <>
+        <Banner/>
         <footer className={styles.footer}>
             <div className="wrapper">
                 <div className={styles.container}>
@@ -67,7 +69,7 @@ export default async function Footer() {
                     </div>
                 </div>
             </div>
-            <Banner/>
         </footer>
+        </>
     );
 };

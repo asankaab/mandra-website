@@ -5,6 +5,7 @@
     transition: all 200ms ease-in;
     overflow: hidden;
     border: 1px solid transparent;
+    transition: all ease-in 250ms;
     
     &:hover, &:focus-visible { 
         background-color: main.$color-grey-shade;
@@ -12,9 +13,10 @@
         color: main.$color-black;
         border: 1px solid main.$color-grey;
         border-radius: main.$size-xs;
+        transform: translateY(-0.2rem);
 
         .image {
-            transform: scale(1.08);
+            transform: scale(1.08) rotate(2deg);
         }
         
         .arrow {
@@ -84,6 +86,7 @@
         grid-template-rows: repeat(2, 1fr);
         gap: main.$size-xs;
         overflow: hidden;
+        border-radius: 2px;
 
         .arrow {
             display: block;

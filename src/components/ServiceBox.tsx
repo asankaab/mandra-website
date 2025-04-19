@@ -5,12 +5,12 @@ import styles from "./servicebox.module.scss";
 import ImageLoader from "./ui/ImageLoader";
 import { ServicesEntrySkeleton } from "@/lib/types";
 
-export default function ServiceBox({entry, number}: {entry: ServicesEntrySkeleton, number: number}) {
+export default function ServiceBox({entry, number, className}: {entry: ServicesEntrySkeleton, number: number, className: string}) {
 
     const data = JSON.parse(JSON.stringify(entry));
 
     return (
-        <div className={styles.servicebox}>
+        <div className={styles.servicebox+" "+className}>
             <Heading1 className={styles.number}>{ number < 10 ? '0' + ( number + 1 ) : number + 1 }</Heading1>
             <div className={styles.textBox}>
                 <Heading2>{data.fields.title}</Heading2>

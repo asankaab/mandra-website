@@ -4,6 +4,8 @@ import MobileMenu from "./MobileMenu";
 import Icon from "./ui/Icon";
 import { getContactPage, getHomepageData } from "@/app/actions";
 import ImageLoader from "./ui/ImageLoader";
+import Animator from "./Animator";
+import { slideLeft, slideUp } from "@/lib/animations";
 
 export default async function Header() {
 
@@ -26,20 +28,24 @@ export default async function Header() {
                 <div className={styles.navWrapper}>
                     <div className={styles.desktopNav}>
                         <Link href="/" >
-                            <ImageLoader src={homepageData.fields.brandLogo.fields.file.url} unoptimize
+                            <ImageLoader priority src={homepageData.fields.brandLogo.fields.file.url} unoptimize
                             alt={homepageData.fields.brandLogo.fields.title} width={38} height={38} />
                         </Link>
                         <nav>
-                            <ul className={styles.desktopMenuList}>
-                                {menuItems.map((item, index) =>
-                                    <li key={index}><Link href={item.href} className={styles.desktopMenuItem}>{item.name}</Link></li>
-                                )}
-                            </ul>
+                            <Animator target='li' animation={slideLeft} autoplay>
+                                <ul className={styles.desktopMenuList}>
+                                        {menuItems.map((item, index) =>
+                                            <li key={index}><Link href={item.href} className={styles.desktopMenuItem}>{item.name}</Link></li>
+                                        )}
+                                </ul>
+                            </Animator>
                         </nav>
                     </div>
-                    <a className={styles.tel} href={"tel:" + contact.fields.phone}>
-                        <Icon size={16} name="phone"/><span>{contact.fields.phone}</span>
-                    </a>
+                    <Animator target='a' animation={slideUp}  autoplay>
+                        <a className={styles.tel} href={"tel:" + contact.fields.phone}>
+                            <Icon size={16} name="phone"/><span>{contact.fields.phone}</span>
+                        </a>
+                    </Animator>
                 </div>
             </div>
         </header>

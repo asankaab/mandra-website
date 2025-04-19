@@ -22,7 +22,7 @@
     align-items: center;
 
     img {
-        opacity: .1;
+        opacity: .05;
         width: 50%;;
     }
 
@@ -36,6 +36,16 @@
             position: absolute;
             left: 0;
             clip-path: polygon(0 0, 0 100%, 50% 50%);
+            animation: swing 5000ms ease-in-out infinite alternate;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: translateY(40px);
+            }
+            100% {
+                transform: translateY(-40px);
+            }
         }
     }
 }
