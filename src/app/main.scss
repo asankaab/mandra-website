@@ -16,7 +16,7 @@
   $heading2: clamp(1.2rem, 3.4vw - 2rem, 2.8rem);
   $nav-link: clamp(.8rem, 1.4vw - 2rem, 1.8rem);
   $mini-title: clamp(.8rem, 2vw - 2rem, 2rem);
-  $body: clamp(0.9rem, 2vw - 2rem, 2rem);
+  $body: clamp(0.9rem, 2vw - 1rem, 2rem);
 
   /* spacing */
 
@@ -90,3 +90,7 @@ $section-padding: $size-lg;
 .page-padding-block {
   padding-block: $section-padding;
 }
+
+// .nav-link {
+//   opacity: 0;
+// }

@@ -16,10 +16,11 @@ interface ImagePropTypes {
         style?: object,
         fill?: boolean,
         sizes?: string,
+        priority?: boolean,
 }
 
 export default function ImageLoader({ src, width, height, radius, fit, 
-    focus, alt, unoptimize, className, style, fill, sizes } : ImagePropTypes) {
+    focus, alt, unoptimize, className, style, fill, sizes, priority = false } : ImagePropTypes) {
 
     const url = new URL(`https:${src}`)
     if (!unoptimize) {
@@ -43,6 +44,6 @@ export default function ImageLoader({ src, width, height, radius, fit,
     }
 
     return (
-        <Image className={className} unoptimized={unoptimize} fill={fill} sizes={sizes} style={style} loader={loaderFunction} src={url.href} width={width} height={height} alt={alt}/>
+        <Image className={className} priority={priority} unoptimized={unoptimize} fill={fill} sizes={sizes} style={style} loader={loaderFunction} src={url.href} width={width} height={height} alt={alt}/>
     )
 }
