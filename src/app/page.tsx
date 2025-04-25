@@ -100,7 +100,7 @@ export default async function Home() {
               return (
                 <div key={index} className={(isEven ? styles.memberBox : styles.memberBoxRight)+" anim"}>
                   <div className={styles.imageBox}>
-                      <ImageLoader focus="face" fit="thumb" src={data.fields.avatar?.fields.file.url} sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw" fill alt={data.fields.name}/>
+                      <ImageLoader w={400} focus="face" fit="thumb" src={data.fields.avatar?.fields.file.url} sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw" fill alt={data.fields.name}/>
                   </div>
                   <div className={styles.textBox}>
                       <Heading2 bold>{data.fields.name}</Heading2>
