@@ -17,7 +17,7 @@ export default function BlogCard({ entry, className }: {entry: BlogEntrySkeleton
                 <Paragraph>{data.fields.content.content[0].content[0].value}</Paragraph>
             </div>
             <div className={styles.imageBox}>
-                <ImageLoader className={styles.image} sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw" src={data.fields.coverPhoto.fields.file.url} fill alt={data.fields.coverPhoto.fields.title}/>
+                <ImageLoader w={400} className={styles.image} sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw" src={data.fields.coverPhoto.fields.file.url} fill alt={data.fields.coverPhoto.fields.title}/>
             </div>
             <div className={styles.arrow}>
                 <Icon name="arrow"/>

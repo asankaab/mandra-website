@@ -43,7 +43,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                                     <ImageLoader radius='max' fit='thumb'
                                     src={article.fields.author.fields.avatar.fields.file.url}
                                     alt={article.fields.author.fields.avatar.fields.title}
-                                    width={100} height={100}/>
+                                    width={100} height={100} w={100}/>
                                 </div>
                                 <div className={styles.title}>
                                     <Paragraph bold>{article.fields.author.fields.name}</Paragraph>
