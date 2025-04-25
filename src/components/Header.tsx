@@ -5,7 +5,7 @@ import Icon from "./ui/Icon";
 import { getContactPage, getHomepageData } from "@/app/actions";
 import ImageLoader from "./ui/ImageLoader";
 import Animator from "./Animator";
-import { slideLeft, slideUp } from "@/lib/animations";
+import { fadeIn, slideLeft, slideUp } from "@/lib/animations";
 
 export default async function Header() {
 
@@ -41,7 +41,7 @@ export default async function Header() {
                             </Animator>
                         </nav>
                     </div>
-                    <Animator target='a' animation={slideUp}  autoplay>
+                    <Animator target='a' animation={fadeIn}  autoplay>
                         <a className={styles.tel} href={"tel:" + contact.fields.phone}>
                             <Icon size={16} name="phone"/><span>{contact.fields.phone}</span>
                         </a>
