@@ -183,7 +183,7 @@
 
     &::before {
         content: "/";
-        color: main.$color-grey;
+        color: rgba($color: main.$color-black, $alpha: 0.5);
         padding-right: .5rem;
     }
 

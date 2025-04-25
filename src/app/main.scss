@@ -55,8 +55,8 @@
   transition: all 300ms ease-out;
 
   &:hover {
-    transform: scale(1.2);
     fill: $color-grey-dark;
+    transform: scale(1.2);
   }
 }
 

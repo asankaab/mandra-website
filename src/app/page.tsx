@@ -15,7 +15,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ImageLoader from "@/components/ui/ImageLoader";
 import Footer from "@/components/Footer";
 import Animator from "@/components/Animator";
-import { slideLeft, slideUp } from "@/lib/animations";
+import { fadeIn, slideLeft, slideUp } from "@/lib/animations";
 
 export default async function Home() {
 
@@ -41,7 +41,7 @@ export default async function Home() {
           </div>
           <div className={styles.socialContainer}>
             <p className={styles.socialText}>Connect with us</p>
-            <Animator animation={slideLeft} target="a" autoplay>
+            <Animator animation={fadeIn} stagg={[0, 1000]} target="a" autoplay>
               <div className="icon-container">
                 {homepageData.fields.social.map((link: string) => {
                   const url = new URL(link)
