@@ -39,7 +39,7 @@ export default function MobileMenu({ menuItems, logoPath, phone }
     return (
         <Collapsible.Root open={state === 'open' ? true : false} onOpenChange={(open) => onStateChange(open)} className={styles.collapsibleRoot}>
             <div className={styles.menuBar}>
-                <Link href="/" ><ImageLoader priority src={logoPath.file.url} unoptimize alt={logoPath.title} width={38} height={38} w={38} /></Link>
+                <Link href="/" ><ImageLoader priority src={logoPath.file.url} unoptimize alt={logoPath.title} width={38} height={38} /></Link>
                 <Collapsible.Trigger className={styles.menuButton}>
                     <svg className={animation[state]} xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
                         <rect className={animation.bar1} y="11" width="30" height="2" rx=".3" ry=".3"/>

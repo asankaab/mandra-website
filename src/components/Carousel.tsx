@@ -28,7 +28,7 @@ export default function Carousel({ imagesArray, logo, className }: { imagesArray
                 <ImageLoader
                     src={url.fields.file.url}
                     alt={url.fields.title}
-                    fill w={768}
+                    fill
                     className={styles.heroImage}
                 />
             </SwiperSlide>

@@ -5,7 +5,7 @@ import Icon from "./ui/Icon";
 import { getContactPage, getHomepageData } from "@/app/actions";
 import ImageLoader from "./ui/ImageLoader";
 import Animator from "./Animator";
-import { fadeIn, slideLeft, slideUp } from "@/lib/animations";
+import { fadeIn, slideLeft } from "@/lib/animations";
 
 export default async function Header() {
 
@@ -29,7 +29,7 @@ export default async function Header() {
                     <div className={styles.desktopNav}>
                         <Link href="/" >
                             <ImageLoader priority src={homepageData.fields.brandLogo.fields.file.url} unoptimize
-                            alt={homepageData.fields.brandLogo.fields.title} width={38} height={38} w={38} />
+                            alt={homepageData.fields.brandLogo.fields.title} width={38} height={38} />
                         </Link>
                         <nav>
                             <Animator target='li' animation={slideLeft} autoplay>

@@ -7,7 +7,7 @@ export default function loaderFunction({ src }: { src: string }) {
   const widthPara = url.searchParams.get('w')
 
   if (!widthPara) {  
-    url.searchParams.set('w', '900')
+    url.searchParams.set('w', '700')
     return url.href
   }
 

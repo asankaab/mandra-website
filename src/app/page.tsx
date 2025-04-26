@@ -15,7 +15,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ImageLoader from "@/components/ui/ImageLoader";
 import Footer from "@/components/Footer";
 import Animator from "@/components/Animator";
-import { fadeIn, slideLeft, slideUp } from "@/lib/animations";
+import { fadeIn, slideUp } from "@/lib/animations";
 
 export default async function Home() {
 
@@ -100,7 +100,7 @@ export default async function Home() {
               return (
                 <div key={index} className={(isEven ? styles.memberBox : styles.memberBoxRight)+" anim"}>
                   <div className={styles.imageBox}>
-                      <ImageLoader w={400} focus="face" fit="thumb" src={data.fields.avatar?.fields.file.url} sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw" fill alt={data.fields.name}/>
+                      <ImageLoader focus="face" fit="thumb" src={data.fields.avatar?.fields.file.url} sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw" fill alt={data.fields.name}/>
                   </div>
                   <div className={styles.textBox}>
                       <Heading2 bold>{data.fields.name}</Heading2>

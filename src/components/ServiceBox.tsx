@@ -17,7 +17,7 @@ export default function ServiceBox({entry, number, className}: {entry: ServicesE
                 <Paragraph>{data.fields.description}</Paragraph>
             </div>
             <div className={styles.imageBox}>
-                <ImageLoader fit="fill" focus="face" fill w={600}
+                <ImageLoader fit="fill" focus="face" fill
                 sizes="(max-width: 768px) 20vw, (max-width: 1360px) 33vw"
                 src={data.fields.image.fields.file.url} alt={data.fields.image.fields.title}/>
             </div>

@@ -7,7 +7,6 @@ interface ImagePropTypes {
         src: string, 
         width?: number, 
         height?: number,
-        w?: number,
         radius?: 0 | 'max',
         fit?: 'pad'| 'fill' | 'scale' | 'crop' | 'thumb',
         focus?: 'center'| 'top' | 'right' | 'left' | 'bottom' | 'face' | 'faces',
@@ -20,7 +19,7 @@ interface ImagePropTypes {
         priority?: boolean,
 }
 
-export default function ImageLoader({ src, width, height, w, radius, fit, 
+export default function ImageLoader({ src, width, height, radius, fit, 
     focus, alt, unoptimize, className, style, fill, sizes, priority = false } : ImagePropTypes) {
 
     const url = new URL(`https:${src}`)
@@ -28,8 +27,8 @@ export default function ImageLoader({ src, width, height, w, radius, fit,
         url.searchParams.set('fm', 'webp')
         url.searchParams.set('q', '85')
     }
-    if (w) {
-        url.searchParams.set('w', w.toString())
+    if (width) {
+        url.searchParams.set('w', width.toString())
     }
     if (height) {
         url.searchParams.set('h', height.toString())
