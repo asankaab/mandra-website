@@ -26,7 +26,12 @@ export default function Animator({
     scope.current = createScope({ root }).add( scope => {
 
       animation.delay = stagger(stagg);
-      animation.autoplay = autoplay === 'scroll' ? onScroll({container}) : autoplay;
+      animation.autoplay = autoplay === 'scroll' ? onScroll(
+        {
+          container: container, debug: false, 
+          enter: 'center', leave: 'center-=150em bottom+=100%'
+        }
+      ) : autoplay;
       animation.duration = duration;
 
       animate(target, animation);
